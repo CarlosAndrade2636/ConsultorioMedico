@@ -38,6 +38,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Paciente.findByEtnia", query = "SELECT p FROM Paciente p WHERE p.etnia = :etnia")})
 public class Paciente implements Serializable {
 
+    @JoinColumn(name = "usuarioPaciente", referencedColumnName = "idUsuario")
+    @ManyToOne(optional = false)
+    private Usuario usuarioPaciente;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -156,6 +160,14 @@ public class Paciente implements Serializable {
     @Override
     public String toString() {
         return "modelo.Paciente[ idPaciente=" + idPaciente + " ]";
+    }
+
+    public Usuario getUsuarioPaciente() {
+        return usuarioPaciente;
+    }
+
+    public void setUsuarioPaciente(Usuario usuarioPaciente) {
+        this.usuarioPaciente = usuarioPaciente;
     }
     
 }

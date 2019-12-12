@@ -6,8 +6,10 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,10 +19,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,6 +41,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Citamedica.findByMotivo", query = "SELECT c FROM Citamedica c WHERE c.motivo = :motivo")
     , @NamedQuery(name = "Citamedica.findByEstado", query = "SELECT c FROM Citamedica c WHERE c.estado = :estado")})
 public class Citamedica implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cita")
+    private Collection<Consultamedica> consultamedicaCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -159,6 +166,15 @@ public class Citamedica implements Serializable {
     @Override
     public String toString() {
         return "modelo.Citamedica[ idCita=" + idCita + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Consultamedica> getConsultamedicaCollection() {
+        return consultamedicaCollection;
+    }
+
+    public void setConsultamedicaCollection(Collection<Consultamedica> consultamedicaCollection) {
+        this.consultamedicaCollection = consultamedicaCollection;
     }
     
 }
