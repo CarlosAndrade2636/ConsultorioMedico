@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author USER
  */
-public class Medico implements Serializable {
+public class Medico extends Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,7 +24,7 @@ public class Medico implements Serializable {
 
     private String especialidadMedico;
 
-    private Collection<Citamedica> citamedicaCollection;
+
 
     private Persona personaMedico;
 
@@ -67,15 +67,7 @@ public class Medico implements Serializable {
         this.especialidadMedico = especialidadMedico;
     }
 
-    @XmlTransient
-    public Collection<Citamedica> getCitamedicaCollection() {
-        return citamedicaCollection;
-    }
-
-    public void setCitamedicaCollection(Collection<Citamedica> citamedicaCollection) {
-        this.citamedicaCollection = citamedicaCollection;
-    }
-
+ 
     public Persona getPersonaMedico() {
         return personaMedico;
     }

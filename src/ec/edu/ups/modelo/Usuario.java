@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Usuario implements Serializable {
 
 
-    private Collection<Paciente> pacienteCollection;
+
 
     private static final long serialVersionUID = 1L;
 
@@ -31,7 +31,7 @@ public class Usuario implements Serializable {
 
     private String rolUsuario;
 
-    private Collection<Medico> medicoCollection;
+
 
     public Usuario() {
     }
@@ -79,14 +79,7 @@ public class Usuario implements Serializable {
         this.rolUsuario = rolUsuario;
     }
 
-    @XmlTransient
-    public Collection<Medico> getMedicoCollection() {
-        return medicoCollection;
-    }
-
-    public void setMedicoCollection(Collection<Medico> medicoCollection) {
-        this.medicoCollection = medicoCollection;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -113,13 +106,6 @@ public class Usuario implements Serializable {
         return "modelo.Usuario[ idUsuario=" + idUsuario + " ]";
     }
 
-    @XmlTransient
-    public Collection<Paciente> getPacienteCollection() {
-        return pacienteCollection;
-    }
-
-    public void setPacienteCollection(Collection<Paciente> pacienteCollection) {
-        this.pacienteCollection = pacienteCollection;
-    }
+  
     
 }

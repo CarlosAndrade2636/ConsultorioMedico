@@ -31,12 +31,9 @@ public class Paciente implements Serializable {
 
     private String etnia;
 
-    private Collection<Citamedica> citamedicaCollection;
-
     private Persona personaPaciente;
 
-    private Collection<Turno> turnoCollection;
-
+  
     public Paciente() {
     }
 
@@ -83,14 +80,7 @@ public class Paciente implements Serializable {
         this.etnia = etnia;
     }
 
-    @XmlTransient
-    public Collection<Citamedica> getCitamedicaCollection() {
-        return citamedicaCollection;
-    }
-
-    public void setCitamedicaCollection(Collection<Citamedica> citamedicaCollection) {
-        this.citamedicaCollection = citamedicaCollection;
-    }
+    
 
     public Persona getPersonaPaciente() {
         return personaPaciente;
@@ -100,14 +90,7 @@ public class Paciente implements Serializable {
         this.personaPaciente = personaPaciente;
     }
 
-    @XmlTransient
-    public Collection<Turno> getTurnoCollection() {
-        return turnoCollection;
-    }
-
-    public void setTurnoCollection(Collection<Turno> turnoCollection) {
-        this.turnoCollection = turnoCollection;
-    }
+    
 
     @Override
     public int hashCode() {

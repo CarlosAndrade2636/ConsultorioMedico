@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import modelo.Usuario;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  *
@@ -20,10 +20,10 @@ public class ConexionDB {
     
     private static Connection conectar() {
         Connection conexion = null;
-        String url =  "jdbc:postgresql://localhost:5432/sistemaCitasM"; 
+        String url =  "jdbc:postgresql://localhost:5432/consultorio"; 
         try {
             Class.forName("org.postgresql.Driver");
-            conexion = DriverManager.getConnection(url, "postgres", "jessica");
+            conexion = DriverManager.getConnection(url, "root", "");
             System.out.println("correcto");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Ocurrio un error: " + e.getMessage());

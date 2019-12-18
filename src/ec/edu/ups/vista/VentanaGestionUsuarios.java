@@ -1,4 +1,4 @@
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 import javax.swing.JOptionPane;
 import controlador.ControladorUsuario;

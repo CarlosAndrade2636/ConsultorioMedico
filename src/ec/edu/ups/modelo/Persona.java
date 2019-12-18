@@ -36,9 +36,7 @@ public class Persona implements Serializable {
 
     private String telefono;
 
-    private Collection<Paciente> pacienteCollection;
-
-    private Collection<Medico> medicoCollection;
+   
 
     public Persona() {
     }
@@ -122,23 +120,6 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    @XmlTransient
-    public Collection<Paciente> getPacienteCollection() {
-        return pacienteCollection;
-    }
-
-    public void setPacienteCollection(Collection<Paciente> pacienteCollection) {
-        this.pacienteCollection = pacienteCollection;
-    }
-
-    @XmlTransient
-    public Collection<Medico> getMedicoCollection() {
-        return medicoCollection;
-    }
-
-    public void setMedicoCollection(Collection<Medico> medicoCollection) {
-        this.medicoCollection = medicoCollection;
-    }
 
     @Override
     public int hashCode() {

@@ -1,4 +1,4 @@
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 import controlador.ConexionDB;
 import javax.swing.ImageIcon;

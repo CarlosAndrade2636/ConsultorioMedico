@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 import java.text.SimpleDateFormat;
 import modelo.Paciente;
@@ -47,29 +47,17 @@ public class PanelDatosPaciente extends javax.swing.JPanel {
 
         jLabel9.setText("Instrucción:");
 
-        txtEtnia.setBackground(java.awt.Color.white);
         txtEtnia.setEnabled(false);
-        txtEtnia.setOpaque(false);
 
-        txtProcedencia.setBackground(java.awt.Color.white);
         txtProcedencia.setEnabled(false);
-        txtProcedencia.setOpaque(false);
 
-        txtFecha.setBackground(java.awt.Color.white);
         txtFecha.setEnabled(false);
-        txtFecha.setOpaque(false);
 
-        txtSexo.setBackground(java.awt.Color.white);
         txtSexo.setEnabled(false);
-        txtSexo.setOpaque(false);
 
-        txtTipoSangre.setBackground(java.awt.Color.white);
         txtTipoSangre.setEnabled(false);
-        txtTipoSangre.setOpaque(false);
 
-        txtInstruccion.setBackground(java.awt.Color.white);
         txtInstruccion.setEnabled(false);
-        txtInstruccion.setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

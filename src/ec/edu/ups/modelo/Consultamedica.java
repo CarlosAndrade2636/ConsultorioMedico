@@ -41,7 +41,6 @@ public class Consultamedica implements Serializable {
 
     private int cita;
 
-    private Collection<Consulrece> consulreceCollection;
 
     public Consultamedica() {
     }
@@ -152,15 +151,7 @@ public class Consultamedica implements Serializable {
         this.cita = cita;
     }
 
-    @XmlTransient
-    public Collection<Consulrece> getConsulreceCollection() {
-        return consulreceCollection;
-    }
-
-    public void setConsulreceCollection(Collection<Consulrece> consulreceCollection) {
-        this.consulreceCollection = consulreceCollection;
-    }
-
+  
     @Override
     public int hashCode() {
         int hash = 0;

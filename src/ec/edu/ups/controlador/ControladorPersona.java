@@ -6,17 +6,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import modelo.Medico;
-import modelo.Paciente;
-import modelo.Persona;
-import modelo.Usuario;
+import ec.edu.ups.modelo.Medico;
+import ec.edu.ups.modelo.Paciente;
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  *
  * @author jessica
  */
+
+
 public class ControladorPersona {
+      
     
+  
     public static int generarID() {
         String sql = "select max(id) from personas";
         return ConexionDB.generarID(sql);
@@ -25,7 +29,7 @@ public class ControladorPersona {
     public static boolean agregar(Persona persona, String tipo) {
         if(buscar(persona.getCedula(), tipo) == null) {
             String sql = "insert into personas values(" + 
-                          persona.getId() + ",'" +
+                          persona.getIdPerosona() + ",'" +
                           persona.getCedula() + "', '" +
                           persona.getNombre() + "', '" +
                           persona.getApellido() + "')";

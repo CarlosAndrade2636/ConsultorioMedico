@@ -1,4 +1,4 @@
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

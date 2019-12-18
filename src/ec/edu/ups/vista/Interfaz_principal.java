@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 //import controlador.Controlador_Existencias;
 import java.awt.Dimension;

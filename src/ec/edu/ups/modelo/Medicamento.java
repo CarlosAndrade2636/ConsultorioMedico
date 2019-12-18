@@ -31,8 +31,7 @@ public class Medicamento implements Serializable {
 
     private double dosis;
 
-    private Collection<Medicamentoreceta> medicamentorecetaCollection;
-
+    
     public Medicamento() {
     }
 
@@ -88,14 +87,6 @@ public class Medicamento implements Serializable {
         this.dosis = dosis;
     }
 
-    @XmlTransient
-    public Collection<Medicamentoreceta> getMedicamentorecetaCollection() {
-        return medicamentorecetaCollection;
-    }
-
-    public void setMedicamentorecetaCollection(Collection<Medicamentoreceta> medicamentorecetaCollection) {
-        this.medicamentorecetaCollection = medicamentorecetaCollection;
-    }
 
     @Override
     public int hashCode() {

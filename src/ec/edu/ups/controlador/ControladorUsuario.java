@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Usuario;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  *
@@ -18,12 +18,12 @@ public class ControladorUsuario {
     }
     
     public static boolean agregar(Usuario usuario) {
-        if (buscar(usuario.getNombre()) == null) {
+        if (buscar(usuario.getNombreUsuario()) == null) {
             String sql = "insert into usuarios values(" +
-                      usuario.getId() + ", '" + 
-                      usuario.getNombre() + "', '" +
-                      usuario.getClave() + "', '" +
-                      usuario.getRol() + "')";
+                      usuario.getIdUsuario() + ", '" + 
+                      usuario.getNombreUsuario() + "', '" +
+                      usuario.getPassUsuario()+ "', '" +
+                      usuario.getRolUsuario() + "')";
             ConexionDB.ejecutarSentencia(sql);
             return true;
         }
@@ -33,10 +33,10 @@ public class ControladorUsuario {
     public static boolean modificar(String nombre, Usuario usuario) {
         if (buscar(nombre) != null) {
             String sql = "update usuarios set " + 
-                         "nombre = '" + usuario.getNombre() + "'," +
-                         "clave = '" + usuario.getClave() + "'," +
-                         "rol = '" + usuario.getRol() +"' " +  
-                         "where id = " + usuario.getId();
+                         "nombre = '" + usuario.getNombreUsuario() + "'," +
+                         "clave = '" + usuario.getPassUsuario() + "'," +
+                         "rol = '" + usuario.getRolUsuario()  +"' " +  
+                         "where id = " + usuario.getIdUsuario();
             ConexionDB.ejecutarSentencia(sql);
             return true;
         }

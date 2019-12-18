@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import modelo.Cita;
-import modelo.Medico;
-import modelo.Paciente;
+import ec.edu.ups.modelo.Citamedica;
+import ec.edu.ups.modelo.Medico;
+import ec.edu.ups.modelo.Paciente;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ControladorCita {
         return ConexionDB.generarID(sql);
     }
 
-    public static boolean agregar(Cita cita) {
+    public static boolean agregar(cita cita) {
         if (buscar(cita.getId()) == null) {
             Date fecha = cita.getFecha();
             long cadenaFecha = fecha.getTime();

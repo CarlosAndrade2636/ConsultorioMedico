@@ -1,9 +1,9 @@
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
-import controlador.ConexionDB;
+import ec.edu.ups.controlador.ConexionDB;
 import javax.swing.JOptionPane;
-import modelo.Usuario;
-import controlador.ControladorUsuario;
+import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.controlador.ControladorUsuario;
 
 /**
  * @author jessica
@@ -47,8 +47,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 btIngresarActionPerformed(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/jessica/NetBeansProjects/SistemaCitasM/imagenes/Captura de pantalla 2019-11-22 a la(s) 7.39.38 p. m..png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -27,10 +27,6 @@ public class Receta implements Serializable {
 
     private int idMedREs;
 
-    private Collection<Consulrece> consulreceCollection;
-
-    private Collection<Medicamentoreceta> medicamentorecetaCollection;
-
     public Receta() {
     }
 
@@ -77,23 +73,7 @@ public class Receta implements Serializable {
         this.idMedREs = idMedREs;
     }
 
-    @XmlTransient
-    public Collection<Consulrece> getConsulreceCollection() {
-        return consulreceCollection;
-    }
 
-    public void setConsulreceCollection(Collection<Consulrece> consulreceCollection) {
-        this.consulreceCollection = consulreceCollection;
-    }
-
-    @XmlTransient
-    public Collection<Medicamentoreceta> getMedicamentorecetaCollection() {
-        return medicamentorecetaCollection;
-    }
-
-    public void setMedicamentorecetaCollection(Collection<Medicamentoreceta> medicamentorecetaCollection) {
-        this.medicamentorecetaCollection = medicamentorecetaCollection;
-    }
 
     @Override
     public int hashCode() {

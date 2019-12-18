@@ -1,4 +1,4 @@
-package ec.ups.edu.vista;
+package ec.edu.ups.vista;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
