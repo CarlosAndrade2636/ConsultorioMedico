@@ -21,7 +21,7 @@ public class Paciente implements Serializable {
 
     private Usuario usuarioPaciente;
 
-    private static final long serialVersionUID = 1L;
+  
 
     private Integer idPaciente;
 
