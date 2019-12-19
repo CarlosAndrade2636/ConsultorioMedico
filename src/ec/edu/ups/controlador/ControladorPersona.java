@@ -107,17 +107,21 @@ public class ControladorPersona {
                 int id = resultadoPersona.getInt("id");
                 String nombre = resultadoPersona.getString("nombre");
                 String apellido = resultadoPersona.getString("apellido");
+                String sexo = resultadoPersona.getString("sexo");
+                Date fechaNacimiento = resultadoPersona.getDate("fecha");
+                String direccion = resultadoPersona.getString("direccion");
+                String telefono = resultadoPersona.getString("telefono");
+                
                 if (tipo.equals("medico")) {
                     sql = "select * from medicos where id = " + id;
                     ResultSet resultadoMedico = ConexionDB.ejecutarConsulta(sql);
                     if (!resultadoMedico.next()) return null;
-                    String direccion = resultadoMedico.getString("direccion");
-                    String email = resultadoMedico.getString("email");
-                    String especialidad = resultadoMedico.getString("especialidad");
+                    String correoMedico = resultadoMedico.getString("correoMedico");
+                    String especialidadMedico = resultadoMedico.getString("especialidadMedico");
                     Usuario usuario = ControladorUsuario.buscar(cedula);
                     
                    // persona = new Medico(id, cedula, nombre, apellido, direccion, email, especialidad, usuario);
-                    persona = new Medico (id,email,especialidad,usuario, );
+                    persona = new Medico (id,cedula,nombre,apellido,sexo,fechaNacimiento,direccion,telefono,correoMedico, especialidadMedico,usuario);
                 } else if (tipo.equals("paciente")){
                     sql = "select * from pacientes where id = " + id;
                     ResultSet resultadoPaciente = ConexionDB.ejecutarConsulta(sql);

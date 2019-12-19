@@ -7,6 +7,7 @@ package ec.edu.ups.modelo;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -35,7 +36,7 @@ public class Medico extends Persona implements Serializable {
     public Medico(Integer idMedico) {
         this.idMedico = idMedico;
     }
- public Medico(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, String fecha, String direccion, String telefono, 
+ public Medico(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, Date fecha, String direccion, String telefono, 
               String correoMedico, String especialidadMedico,
                   Usuario usuarioMedico) {
          super (idPerosona,cedula,nombre,apellido,sexo,fecha,direccion,telefono);

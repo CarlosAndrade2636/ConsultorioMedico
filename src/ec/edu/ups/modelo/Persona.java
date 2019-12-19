@@ -7,6 +7,7 @@ package ec.edu.ups.modelo;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -30,7 +31,7 @@ public class Persona implements Serializable {
 
     private String sexo;
 
-    private String fecha;
+    private Date fecha;
 
     private String direccion;
 
@@ -45,7 +46,7 @@ public class Persona implements Serializable {
         this.idPerosona = idPerosona;
     }
 
-    public Persona(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, String fecha, String direccion, String telefono) {
+    public Persona(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, Date fecha, String direccion, String telefono) {
         this.idPerosona = idPerosona;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -96,11 +97,11 @@ public class Persona implements Serializable {
         this.sexo = sexo;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

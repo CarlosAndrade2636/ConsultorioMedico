@@ -22,11 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Citamedica implements Serializable {
 
 
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
-
-    private Collection<Consultamedica> consultamedicaCollection;
-
-    private static final long serialVersionUID = 1L;
+   
   
     private Integer idCita;
     
@@ -64,7 +60,6 @@ public class Citamedica implements Serializable {
     public void setIdCita(Integer idCita) {
         Integer oldIdCita = this.idCita;
         this.idCita = idCita;
-        changeSupport.firePropertyChange("idCita", oldIdCita, idCita);
     }
 
     public Date getFechaCita() {
@@ -74,7 +69,6 @@ public class Citamedica implements Serializable {
     public void setFechaCita(Date fechaCita) {
         Date oldFechaCita = this.fechaCita;
         this.fechaCita = fechaCita;
-        changeSupport.firePropertyChange("fechaCita", oldFechaCita, fechaCita);
     }
 
     public Date getHoraCita() {
@@ -84,7 +78,6 @@ public class Citamedica implements Serializable {
     public void setHoraCita(Date horaCita) {
         Date oldHoraCita = this.horaCita;
         this.horaCita = horaCita;
-        changeSupport.firePropertyChange("horaCita", oldHoraCita, horaCita);
     }
 
     public String getMotivo() {
@@ -94,7 +87,6 @@ public class Citamedica implements Serializable {
     public void setMotivo(String motivo) {
         String oldMotivo = this.motivo;
         this.motivo = motivo;
-        changeSupport.firePropertyChange("motivo", oldMotivo, motivo);
     }
 
     public String getEstado() {
@@ -104,7 +96,6 @@ public class Citamedica implements Serializable {
     public void setEstado(String estado) {
         String oldEstado = this.estado;
         this.estado = estado;
-        changeSupport.firePropertyChange("estado", oldEstado, estado);
     }
 
     public Medico getMedico() {
@@ -114,7 +105,6 @@ public class Citamedica implements Serializable {
     public void setMedico(Medico medico) {
         Medico oldMedico = this.medico;
         this.medico = medico;
-        changeSupport.firePropertyChange("medico", oldMedico, medico);
     }
 
     public Paciente getPaciente() {
@@ -124,7 +114,6 @@ public class Citamedica implements Serializable {
     public void setPaciente(Paciente paciente) {
         Paciente oldPaciente = this.paciente;
         this.paciente = paciente;
-        changeSupport.firePropertyChange("paciente", oldPaciente, paciente);
     }
 
     @Override
@@ -152,21 +141,6 @@ public class Citamedica implements Serializable {
         return "modelo.Citamedica[ idCita=" + idCita + " ]";
     }
 
-    @XmlTransient
-    public Collection<Consultamedica> getConsultamedicaCollection() {
-        return consultamedicaCollection;
-    }
 
-    public void setConsultamedicaCollection(Collection<Consultamedica> consultamedicaCollection) {
-        this.consultamedicaCollection = consultamedicaCollection;
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
-    }
     
 }
