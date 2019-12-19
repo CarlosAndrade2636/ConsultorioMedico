@@ -109,8 +109,8 @@ public class InicioSesion extends javax.swing.JFrame {
         String clave = String.valueOf(txtClave.getPassword());
         Usuario usuario = ControladorUsuario.buscar(nombreUsuario);
         if (usuario != null) {
-            if (usuario.getNombre().equals(nombreUsuario) &&
-                usuario.getClave().equals(clave)) {
+            if (usuario.getNombreUsuario().equals(nombreUsuario) &&
+                usuario.getPassUsuario().equals(clave)) {
                 ConexionDB.setUsuarioSesion(usuario);
                 new MenuSeleccion().setVisible(true);
                 this.dispose();

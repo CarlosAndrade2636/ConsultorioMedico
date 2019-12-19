@@ -40,6 +40,8 @@ public class Consultamedica implements Serializable {
     private int turno;
 
     private int cita;
+    
+    private Citamedica citamedica;
 
 
     public Consultamedica() {

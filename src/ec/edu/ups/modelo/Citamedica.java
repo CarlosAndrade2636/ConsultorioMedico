@@ -52,6 +52,13 @@ public class Citamedica implements Serializable {
         this.motivo = motivo;
         this.estado = estado;
     }
+     public Citamedica(Integer idCita, Date fechaCita, Date horaCita, String motivo, String estado,Medico medico, Paciente paciente) {
+        this.idCita = idCita;
+        this.fechaCita = fechaCita;
+        this.horaCita = horaCita;
+        this.motivo = motivo;
+        this.estado = estado;
+    }
 
     public Integer getIdCita() {
         return idCita;

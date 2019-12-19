@@ -126,14 +126,12 @@ public class ControladorPersona {
                     sql = "select * from pacientes where id = " + id;
                     ResultSet resultadoPaciente = ConexionDB.ejecutarConsulta(sql);
                     if (!resultadoPaciente.next()) return null;
-                    char sexo = resultadoPaciente.getString("sexo").charAt(0);
                     Date fecha = resultadoPaciente.getDate("fechanacimiento");
                     String tipoSangre = resultadoPaciente.getString("tiposangre");
                     String etnia = resultadoPaciente.getString("etnia");
-                    String procedencia = resultadoPaciente.getString("procedencia");
-                    String instruccion = resultadoPaciente.getString("instruccion");
+                    String lugarNac = resultadoPaciente.getString("lugarNac");
                     persona = new Paciente(id, cedula, nombre, apellido, sexo, fecha,
-                                           tipoSangre, procedencia, etnia, instruccion);
+                                           direccion, telefono, tipoSangre, lugarNac,etnia);
                 }
             }
         } catch (SQLException e) {
@@ -149,10 +147,10 @@ public class ControladorPersona {
             String sqlA = "delete from personas where cedula = '" + cedula + "'";
             String sqlB = "";
             if (tipo.equals("medico")) {
-                sqlB = "delete from medicos where id = " + persona.getId();
+                sqlB = "delete from medicos where id = " + persona.getIdPerosona();
                 ControladorUsuario.eliminar(cedula);
             } else {
-                sqlB = "delete from pacientes where id = " + persona.getId();
+                sqlB = "delete from pacientes where id = " + persona.getIdPerosona();
             }
             ConexionDB.ejecutarSentencia(sqlA);
             ConexionDB.ejecutarConsulta(sqlB);
