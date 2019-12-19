@@ -19,7 +19,6 @@ public class Medico extends Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer idMedico;
-
     private String correoMedico;
 
     private String especialidadMedico;
@@ -36,7 +35,17 @@ public class Medico extends Persona implements Serializable {
     public Medico(Integer idMedico) {
         this.idMedico = idMedico;
     }
-
+ public Medico(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, String fecha, String direccion, String telefono, 
+              String correoMedico, String especialidadMedico,
+                  Usuario usuarioMedico) {
+         super (idPerosona,cedula,nombre,apellido,sexo,fecha,direccion,telefono);
+      
+        this.correoMedico = correoMedico;
+        this.especialidadMedico = especialidadMedico;
+        this.usuarioMedico = usuarioMedico;
+    }
+ 
+    
     public Medico(Integer idMedico, String correoMedico, String especialidadMedico) {
         this.idMedico = idMedico;
         this.correoMedico = correoMedico;

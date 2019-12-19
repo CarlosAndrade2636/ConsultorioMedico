@@ -37,24 +37,24 @@ public class ControladorPersona {
             if (tipo.equals("medico")) {
                 Medico medico = (Medico) persona;
                 sql = "insert into medicos values(" +
-                      medico.getId() + ",'" +
+                      medico.getIdMedico() + ",'" +
                       medico.getDireccion() + "', '" +
-                      medico.getEmail() + "', '" +
-                      medico.getEspecialidad() + "'," +
-                      medico.getUsuario().getId() + ")";
+                      medico.getCorreoMedico() + "', '" +
+                      medico.getEspecialidadMedico() + "'," +
+                      medico.getPersonaMedico().getIdPerosona() + ")";
                 ConexionDB.ejecutarSentencia(sql);
-            } else if (tipo.equals("paciente")) {
+            } else if (tipo.equals("paciente")) {       //arreglar faltan campos 
                 Paciente paciente = (Paciente) persona;
                 SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY");
-                String fechaFormateada = formato.format(paciente.getFechaNacimiento());
+                String fechaFormateada = formato.format(paciente.getFecha());
                 sql = "insert into pacientes values(" +
-                      paciente.getId() + ", '" + 
+                      paciente.getIdPaciente() + ", '" + 
                       String.valueOf(paciente.getSexo()) + "', '" +
                       fechaFormateada + "', '" +
                       paciente.getTipoSangre() + "', '" +
-                      paciente.getProcedencia() + "', '" + 
+                      paciente.getLugarNac() + "', '" + 
                       paciente.getEtnia() + "', '" +
-                      paciente.getInstruccion() + "')";
+                      paciente.getTelefono() + "')";
                 ConexionDB.ejecutarSentencia(sql);
             }
             return true;
@@ -68,29 +68,29 @@ public class ControladorPersona {
                          "cedula = '" + persona.getCedula() + "'," +
                          "nombre = '" + persona.getNombre() + "'," +
                          "apellido = '" + persona.getApellido() + "' " +
-                         "where id = " + persona.getId() ;
+                         "where id = " + persona.getIdPerosona() ;
             ConexionDB.ejecutarSentencia(sql);
             if (tipo.equals("medico")) {
                 Medico medico = (Medico) persona;
                 sql = "update medicos set " +
                       "direccion = '" + medico.getDireccion() + "'," +
-                      "email = '" + medico.getEmail() + "'," +
-                      "especialidad = '" + medico.getEspecialidad() + "'," +
-                      "idUsuario = '" + medico.getUsuario().getId() + 
-                      "where id = '" + medico.getId();
+                      "email = '" + medico.getCorreoMedico() + "'," +
+                      "especialidad = '" + medico.getEspecialidadMedico() + "'," +
+                      "idUsuario = '" + medico.getUsuarioMedico().getIdUsuario() + 
+                      "where id = '" + medico.getIdMedico();
                 ConexionDB.ejecutarSentencia(sql);
             } else if (tipo.equals("paciente")) {
                 Paciente paciente = (Paciente) persona;
                 SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY");
-                String fechaFormateada = formato.format(paciente.getFechaNacimiento());
+                String fechaFormateada = formato.format(paciente.getFecha());
                 sql = "update pacientes set " +
                       "sexo = '" + String.valueOf(paciente.getSexo()) + "'," +
                       "fechaNacimiento = '" + fechaFormateada + "'," +
                       "tipoSangre = '" + paciente.getTipoSangre() + "'," +
-                      "procedencia = '" + paciente.getProcedencia() + "'," + 
+                      "procedencia = '" + paciente.getLugarNac() + "'," + 
                       "etnia = '" + paciente.getEtnia() + "'," +
-                      "instruccion = '" + paciente.getInstruccion() + "' " +
-                      "where id = " + paciente.getId();
+                      "telefono = '" + paciente.getTelefono() + "' " +
+                      "where id = " + paciente.getIdPaciente();
                 ConexionDB.ejecutarSentencia(sql);
             }
             return true;
@@ -115,7 +115,9 @@ public class ControladorPersona {
                     String email = resultadoMedico.getString("email");
                     String especialidad = resultadoMedico.getString("especialidad");
                     Usuario usuario = ControladorUsuario.buscar(cedula);
-                    persona = new Medico(id, cedula, nombre, apellido, direccion, email, especialidad, usuario);
+                    
+                   // persona = new Medico(id, cedula, nombre, apellido, direccion, email, especialidad, usuario);
+                    persona = new Medico (id,email,especialidad,usuario, );
                 } else if (tipo.equals("paciente")){
                     sql = "select * from pacientes where id = " + id;
                     ResultSet resultadoPaciente = ConexionDB.ejecutarConsulta(sql);

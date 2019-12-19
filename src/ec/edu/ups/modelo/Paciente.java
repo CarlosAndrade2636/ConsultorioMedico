@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author USER
  */
 
-public class Paciente implements Serializable {
+public class Paciente extends Persona implements Serializable {
 
 
     private Usuario usuarioPaciente;

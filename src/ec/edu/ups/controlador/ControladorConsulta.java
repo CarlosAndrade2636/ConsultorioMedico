@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Cita;
-import modelo.Consulta;
+import ec.edu.ups.modelo.Citamedica;
+import ec.edu.ups.modelo.Consultamedica;
 /**
  * Metodo para agregar consulta
  *
@@ -18,7 +18,7 @@ public class ControladorConsulta {
         return ConexionDB.generarID(sql);
     }
     
-    public static boolean agregar(Consulta consulta) {
+    public static boolean agregar(Consultamedica consulta) {
         if (buscar(consulta.getId()) == null) {
             String sql = "insert into consultas values("
                 + consulta.getId() + ", '"
