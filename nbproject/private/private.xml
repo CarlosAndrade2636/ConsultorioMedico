@@ -4,18 +4,29 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Usuario.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/CitamedicaTest.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/controlador/ConexionDB.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/UsuarioTest.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/controlador/ControladorPersona.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Consulrece.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/PersonaTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/TurnoTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/ConsulreceTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/MedicamentorecetaTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/RecetaTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/controlador/ControladorCitaTest.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Turno.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Persona.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Medicamento.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Consultamedica.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Paciente.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/PacienteTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/MedicoTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/ConsultamedicaTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/controlador/ConexionDBTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/controlador/ControladorPersonaTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/controlador/ControladorUsuarioTest.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/controlador/ControladorUsuario.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Receta.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/modelo/Medicamentoreceta.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/controlador/ControladorConsulta.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/vista/InicioSesion.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/src/ec/edu/ups/controlador/ControladorCita.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/modelo/MedicamentoTest.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/ConsultorioMedico/test/ec/edu/ups/controlador/ControladorConsultaTest.java</file>
         </group>
     </open-files>
 </project-private>

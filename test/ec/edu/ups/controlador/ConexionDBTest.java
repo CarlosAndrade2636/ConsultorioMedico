@@ -44,13 +44,11 @@ public class ConexionDBTest {
      */
     @Test
     public void testEjecutarSentencia() {
-        System.out.println("ejecutarSentencia");
-        String sql = "";
+     
         boolean expResult = false;
-        boolean result = ConexionDB.ejecutarSentencia(sql);
+        boolean result = ConexionDB.ejecutarSentencia("");
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -58,52 +56,50 @@ public class ConexionDBTest {
      */
     @Test
     public void testEjecutarConsulta() {
-        System.out.println("ejecutarConsulta");
-        String sql = "";
+        
         ResultSet expResult = null;
-        ResultSet result = ConexionDB.ejecutarConsulta(sql);
+        ResultSet result = ConexionDB.ejecutarConsulta("");
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
      * Test of getUsuarioSesion method, of class ConexionDB.
      */
-    @Test
-    public void testGetUsuarioSesion() {
-        System.out.println("getUsuarioSesion");
-        Usuario expResult = null;
-        Usuario result = ConexionDB.getUsuarioSesion();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetUsuarioSesion() {
+//        System.out.println("getUsuarioSesion");
+//        Usuario expResult = null;
+//        Usuario result = ConexionDB.getUsuarioSesion();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of setUsuarioSesion method, of class ConexionDB.
      */
-    @Test
-    public void testSetUsuarioSesion() {
-        System.out.println("setUsuarioSesion");
-        Usuario usuarioSesion = null;
-        ConexionDB.setUsuarioSesion(usuarioSesion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetUsuarioSesion() {
+//        System.out.println("setUsuarioSesion");
+//        Usuario usuarioSesion = null;
+//        ConexionDB.setUsuarioSesion(usuarioSesion);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of generarID method, of class ConexionDB.
      */
-    @Test
-    public void testGenerarID() {
-        System.out.println("generarID");
-        String sql = "";
-        int expResult = 0;
-        int result = ConexionDB.generarID(sql);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGenerarID() {
+//        System.out.println("generarID");
+//        String sql = "";
+//        int expResult = 0;
+//        int result = ConexionDB.generarID(sql);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     
 }

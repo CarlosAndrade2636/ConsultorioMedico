@@ -17,36 +17,57 @@ import ec.edu.ups.modelo.Usuario;
 public class ConexionDB {
     
     private static Usuario usuarioSesion;
+     // Librería de MySQL
+  
+     private static Connection conexion = null;
+ 
+    private static void conectar() {
     
-    private static Connection conectar() {
-        Connection conexion = null;
-        String url =  "jdbc:postgresql://localhost:5432/consultorio"; 
-        try {
-            Class.forName("org.postgresql.Driver");
-            conexion = DriverManager.getConnection(url, "root", "");
-            System.out.println("correcto");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Ocurrio un error: " + e.getMessage());
+        
+         conexion = null;
+  
+      if (conexion == null) {
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+           conexion = DriverManager.getConnection("jdbc:mysql://localhost/consultorio", "root", "");
+          System.out.println("conectado ");
+         } catch (SQLException ex) {
+          System.out.println("Error de conexion : " + ex.getMessage());
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+      
+
+   }
+   
+    }
+    
+       private static void  desconectar() {
+        if (conexion != null) {
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                System.out.println("Erro al desconctar " + ex.getMessage());
+            }
         }
-        return conexion;
     }
     
     public static boolean ejecutarSentencia(String sql) {
-        Connection conexion = conectar();
-        try {
-            Statement sentencia = conexion.createStatement();
-            sentencia.executeUpdate(sql);
-            conexion.close();
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+     
+         try {
+            conectar();
+            Statement sta = (Statement) conexion.createStatement();
+            sta.executeUpdate(sql);
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error de sql : " + ex.getMessage());
         }
         return false;
     }
     
     public static ResultSet ejecutarConsulta(String sql) {
         ResultSet resultado = null;
-        Connection conexion = conectar();
+       conectar();
         try {
             Statement sentencia = conexion.createStatement();
             resultado = sentencia.executeQuery(sql);
