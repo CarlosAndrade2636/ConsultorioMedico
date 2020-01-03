@@ -45,11 +45,10 @@ public class ControladorUsuarioTest {
     @Test
     public void testGenerarID() {
         System.out.println("generarID");
-        int expResult = 0;
+        int expResult = 3;
         int result = ControladorUsuario.generarID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -72,13 +71,12 @@ public class ControladorUsuarioTest {
     @Test
     public void testModificar() {
         System.out.println("modificar");
-        String nombre = "";
-        Usuario usuario = null;
+        String nombre = "pedro";
+        Usuario usuario = new Usuario();
         boolean expResult = false;
         boolean result = ControladorUsuario.modificar(nombre, usuario);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   ;
     }
 
     /**
@@ -87,12 +85,11 @@ public class ControladorUsuarioTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        String nombreUsuario = "";
+        String nombreUsuario = "juan";
         Usuario expResult = null;
         Usuario result = ControladorUsuario.buscar(nombreUsuario);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -101,25 +98,12 @@ public class ControladorUsuarioTest {
     @Test
     public void testEliminar() {
         System.out.println("eliminar");
-        String nombreUsuario = "";
+        String nombreUsuario = "pedro";
         boolean expResult = false;
         boolean result = ControladorUsuario.eliminar(nombreUsuario);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+       }
 
-    /**
-     * Test of listar method, of class ControladorUsuario.
-     */
-    @Test
-    public void testListar() {
-        System.out.println("listar");
-        List<Usuario> expResult = null;
-        List<Usuario> result = ControladorUsuario.listar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
     
 }

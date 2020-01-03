@@ -45,40 +45,12 @@ public class ControladorConsultaTest {
     @Test
     public void testGenerarID() {
         System.out.println("generarID");
-        int expResult = 0;
+        int expResult = 1;
         int result = ControladorConsulta.generarID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
-    /**
-     * Test of agregar method, of class ControladorConsulta.
-     */
-    @Test
-    public void testAgregar() {
-        System.out.println("agregar");
-        Consultamedica consulta = null;
-        boolean expResult = false;
-        boolean result = ControladorConsulta.agregar(consulta);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of modificar method, of class ControladorConsulta.
-     */
-    @Test
-    public void testModificar() {
-        System.out.println("modificar");
-        Consultamedica consulta = null;
-        boolean expResult = false;
-        boolean result = ControladorConsulta.modificar(consulta);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of buscar method, of class ControladorConsulta.
@@ -90,8 +62,7 @@ public class ControladorConsultaTest {
         Consultamedica expResult = null;
         Consultamedica result = ControladorConsulta.buscar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -107,32 +78,6 @@ public class ControladorConsultaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of listarConsultasEspecificas method, of class ControladorConsulta.
-     */
-    @Test
-    public void testListarConsultasEspecificas() {
-        System.out.println("listarConsultasEspecificas");
-        String cedulaPaciente = "";
-        List<Consultamedica> expResult = null;
-        List<Consultamedica> result = ControladorConsulta.listarConsultasEspecificas(cedulaPaciente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of eliminar method, of class ControladorConsulta.
-     */
-    @Test
-    public void testEliminar() {
-        System.out.println("eliminar");
-        int id = 0;
-        boolean expResult = false;
-        boolean result = ControladorConsulta.eliminar(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
     
 }

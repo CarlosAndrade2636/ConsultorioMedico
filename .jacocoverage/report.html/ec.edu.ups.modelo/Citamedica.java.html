@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Citamedica.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.modelo</a> &gt; <span class="el_source">Citamedica.java</span></div><h1>Citamedica.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.modelo;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+/**
+ *
+ * @author USER
+ */
+
+public class Citamedica implements Serializable {
+
+
+   
+  
+    private Integer idCita;
+    
+    private Date fechaCita;
+ 
+    private Date horaCita;
+ 
+    private String motivo;
+   
+    private String estado;
+   
+    private Medico medico;
+   
+    private Paciente paciente;
+
+<span class="fc" id="L41">    public Citamedica() {</span>
+<span class="fc" id="L42">    }</span>
+
+<span class="nc" id="L44">    public Citamedica(Integer idCita) {</span>
+<span class="nc" id="L45">        this.idCita = idCita;</span>
+<span class="nc" id="L46">    }</span>
+
+<span class="nc" id="L48">    public Citamedica(Integer idCita, Date fechaCita, Date horaCita, String motivo, String estado) {</span>
+<span class="nc" id="L49">        this.idCita = idCita;</span>
+<span class="nc" id="L50">        this.fechaCita = fechaCita;</span>
+<span class="nc" id="L51">        this.horaCita = horaCita;</span>
+<span class="nc" id="L52">        this.motivo = motivo;</span>
+<span class="nc" id="L53">        this.estado = estado;</span>
+<span class="nc" id="L54">    }</span>
+<span class="fc" id="L55">     public Citamedica(Integer idCita, Date fechaCita, Date horaCita, String motivo, String estado,Medico medico, Paciente paciente) {</span>
+<span class="fc" id="L56">        this.idCita = idCita;</span>
+<span class="fc" id="L57">        this.fechaCita = fechaCita;</span>
+<span class="fc" id="L58">        this.horaCita = horaCita;</span>
+<span class="fc" id="L59">        this.motivo = motivo;</span>
+<span class="fc" id="L60">        this.estado = estado;</span>
+<span class="fc" id="L61">    }</span>
+
+    public Integer getIdCita() {
+<span class="fc" id="L64">        return idCita;</span>
+    }
+
+    public void setIdCita(Integer idCita) {
+<span class="fc" id="L68">        Integer oldIdCita = this.idCita;</span>
+<span class="fc" id="L69">        this.idCita = idCita;</span>
+<span class="fc" id="L70">    }</span>
+
+    public Date getFechaCita() {
+<span class="fc" id="L73">        return fechaCita;</span>
+    }
+
+    public void setFechaCita(Date fechaCita) {
+<span class="fc" id="L77">        Date oldFechaCita = this.fechaCita;</span>
+<span class="fc" id="L78">        this.fechaCita = fechaCita;</span>
+<span class="fc" id="L79">    }</span>
+
+    public Date getHoraCita() {
+<span class="fc" id="L82">        return horaCita;</span>
+    }
+
+    public void setHoraCita(Date horaCita) {
+<span class="fc" id="L86">        Date oldHoraCita = this.horaCita;</span>
+<span class="fc" id="L87">        this.horaCita = horaCita;</span>
+<span class="fc" id="L88">    }</span>
+
+    public String getMotivo() {
+<span class="nc" id="L91">        return motivo;</span>
+    }
+
+    public void setMotivo(String motivo) {
+<span class="fc" id="L95">        String oldMotivo = this.motivo;</span>
+<span class="fc" id="L96">        this.motivo = motivo;</span>
+<span class="fc" id="L97">    }</span>
+
+    public String getEstado() {
+<span class="nc" id="L100">        return estado;</span>
+    }
+
+    public void setEstado(String estado) {
+<span class="fc" id="L104">        String oldEstado = this.estado;</span>
+<span class="fc" id="L105">        this.estado = estado;</span>
+<span class="fc" id="L106">    }</span>
+
+    public Medico getMedico() {
+<span class="fc" id="L109">        return medico;</span>
+    }
+
+    public void setMedico(Medico medico) {
+<span class="fc" id="L113">        Medico oldMedico = this.medico;</span>
+<span class="fc" id="L114">        this.medico = medico;</span>
+<span class="fc" id="L115">    }</span>
+
+    public Paciente getPaciente() {
+<span class="fc" id="L118">        return paciente;</span>
+    }
+
+    public void setPaciente(Paciente paciente) {
+<span class="fc" id="L122">        Paciente oldPaciente = this.paciente;</span>
+<span class="fc" id="L123">        this.paciente = paciente;</span>
+<span class="fc" id="L124">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L128">        int hash = 0;</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">        hash += (idCita != null ? idCita.hashCode() : 0);</span>
+<span class="fc" id="L130">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        if (!(object instanceof Citamedica)) {</span>
+<span class="fc" id="L137">            return false;</span>
+        }
+<span class="nc" id="L139">        Citamedica other = (Citamedica) object;</span>
+<span class="nc bnc" id="L140" title="All 8 branches missed.">        if ((this.idCita == null &amp;&amp; other.idCita != null) || (this.idCita != null &amp;&amp; !this.idCita.equals(other.idCita))) {</span>
+<span class="nc" id="L141">            return false;</span>
+        }
+<span class="nc" id="L143">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L148">        return &quot;modelo.Citamedica[ idCita=&quot; + idCita + &quot; ]&quot;;</span>
+    }
+
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

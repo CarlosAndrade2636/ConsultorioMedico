@@ -48,8 +48,7 @@ public class CitamedicaTest {
         Integer expResult = null;
         Integer result = instance.getIdCita();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -61,8 +60,7 @@ public class CitamedicaTest {
         Integer idCita = null;
         Citamedica instance = new Citamedica();
         instance.setIdCita(idCita);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -75,8 +73,7 @@ public class CitamedicaTest {
         Date expResult = null;
         Date result = instance.getFechaCita();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -88,8 +85,7 @@ public class CitamedicaTest {
         Date fechaCita = null;
         Citamedica instance = new Citamedica();
         instance.setFechaCita(fechaCita);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -102,8 +98,7 @@ public class CitamedicaTest {
         Date expResult = null;
         Date result = instance.getHoraCita();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -115,23 +110,10 @@ public class CitamedicaTest {
         Date horaCita = null;
         Citamedica instance = new Citamedica();
         instance.setHoraCita(horaCita);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
-    /**
-     * Test of getMotivo method, of class Citamedica.
-     */
-    @Test
-    public void testGetMotivo() {
-        System.out.println("getMotivo");
-        Citamedica instance = new Citamedica();
-        String expResult = "";
-        String result = instance.getMotivo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of setMotivo method, of class Citamedica.
@@ -142,23 +124,9 @@ public class CitamedicaTest {
         String motivo = "";
         Citamedica instance = new Citamedica();
         instance.setMotivo(motivo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
-    /**
-     * Test of getEstado method, of class Citamedica.
-     */
-    @Test
-    public void testGetEstado() {
-        System.out.println("getEstado");
-        Citamedica instance = new Citamedica();
-        String expResult = "";
-        String result = instance.getEstado();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of setEstado method, of class Citamedica.
@@ -169,8 +137,7 @@ public class CitamedicaTest {
         String estado = "";
         Citamedica instance = new Citamedica();
         instance.setEstado(estado);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -183,8 +150,7 @@ public class CitamedicaTest {
         Medico expResult = null;
         Medico result = instance.getMedico();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -196,8 +162,7 @@ public class CitamedicaTest {
         Medico medico = null;
         Citamedica instance = new Citamedica();
         instance.setMedico(medico);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -210,8 +175,7 @@ public class CitamedicaTest {
         Paciente expResult = null;
         Paciente result = instance.getPaciente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -223,8 +187,7 @@ public class CitamedicaTest {
         Paciente paciente = null;
         Citamedica instance = new Citamedica();
         instance.setPaciente(paciente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -237,8 +200,7 @@ public class CitamedicaTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -252,22 +214,9 @@ public class CitamedicaTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
-    /**
-     * Test of toString method, of class Citamedica.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Citamedica instance = new Citamedica();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
     
 }

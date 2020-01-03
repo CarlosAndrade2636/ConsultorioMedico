@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorConsulta.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.controlador</a> &gt; <span class="el_source">ControladorConsulta.java</span></div><h1>ControladorConsulta.java</h1><pre class="source lang-java linenums">package ec.edu.ups.controlador;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import ec.edu.ups.modelo.Citamedica;
+import ec.edu.ups.modelo.Consultamedica;
+
+/**
+ * Metodo para agregar consulta
+ *
+ * @author jessica
+ */
+<span class="nc" id="L15">public class ControladorConsulta {</span>
+
+    public static int generarID() {
+<span class="fc" id="L18">        String sql = &quot;select max(idConsulta) from consultamedica&quot;;</span>
+<span class="fc" id="L19">        return ConexionDB.generarID(sql);</span>
+    }
+
+    public static boolean agregar(Consultamedica consulta) {
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (buscar(consulta.getIdConsulta()) == null) {</span>
+<span class="nc" id="L24">            String sql = &quot;insert into consultas values(&quot;</span>
+<span class="nc" id="L25">                    + consulta.getIdConsulta() + &quot;, '&quot;</span>
+<span class="nc" id="L26">                    + consulta.getSintomas() + &quot;', '&quot;</span>
+<span class="nc" id="L27">                    + consulta.getDiagnostico() + &quot;', &quot;</span>
+<span class="nc" id="L28">                    + consulta.getPresionArterial() + &quot;, &quot;</span>
+<span class="nc" id="L29">                    + consulta.getFrecuenciaCardiaca() + &quot;, &quot;</span>
+<span class="nc" id="L30">                    + consulta.getFrecuenciaRespiratoria() + &quot;, &quot;</span>
+<span class="nc" id="L31">                    + consulta.getTemperaturaCorporal() + &quot;, &quot;</span>
+<span class="nc" id="L32">                    + consulta.getPeso() + &quot;, &quot;</span>
+<span class="nc" id="L33">                    + consulta.getTalla() + &quot;', '&quot;</span>
+<span class="nc" id="L34">                    + consulta.getTurno() + &quot;', '&quot;</span>
+<span class="nc" id="L35">                    + consulta.getCita() + &quot;);&quot;;</span>
+<span class="nc" id="L36">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L37">            return true;</span>
+        }
+<span class="nc" id="L39">        return false;</span>
+    }
+
+    public static boolean modificar(Consultamedica consulta) {
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (buscar(consulta.getIdConsulta()) != null) {</span>
+<span class="nc" id="L44">            String sql = &quot;update consultas set &quot;</span>
+<span class="nc" id="L45">                    + consulta.getIdConsulta() + &quot;, '&quot;</span>
+<span class="nc" id="L46">                    + consulta.getSintomas() + &quot;', '&quot;</span>
+<span class="nc" id="L47">                    + consulta.getDiagnostico() + &quot;', &quot;</span>
+<span class="nc" id="L48">                    + consulta.getPresionArterial() + &quot;, &quot;</span>
+<span class="nc" id="L49">                    + consulta.getFrecuenciaCardiaca() + &quot;, &quot;</span>
+<span class="nc" id="L50">                    + consulta.getFrecuenciaRespiratoria() + &quot;, &quot;</span>
+<span class="nc" id="L51">                    + consulta.getTemperaturaCorporal() + &quot;, &quot;</span>
+<span class="nc" id="L52">                    + consulta.getPeso() + &quot;, &quot;</span>
+<span class="nc" id="L53">                    + consulta.getTalla() + &quot;', '&quot;</span>
+<span class="nc" id="L54">                    + consulta.getTurno() + &quot;', '&quot;</span>
+<span class="nc" id="L55">                    + consulta.getCita()</span>
+<span class="nc" id="L56">                    + &quot;where id = &quot; + consulta.getIdConsulta();</span>
+<span class="nc" id="L57">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L58">            return true;</span>
+        }
+<span class="nc" id="L60">        return false;</span>
+    }
+
+    public static Consultamedica buscar(int id) {
+<span class="fc" id="L64">        Consultamedica consulta = null;</span>
+<span class="fc" id="L65">        String sql = &quot;select * from consultamedica where idConsulta = &quot; + id;</span>
+        try {
+<span class="fc" id="L67">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">            if (resultado.next()) {</span>
+<span class="nc" id="L69">                int idconsulta = resultado.getInt(&quot;idConsulta&quot;);</span>
+<span class="nc" id="L70">                String sintomas = resultado.getString(&quot;sintomas&quot;);</span>
+<span class="nc" id="L71">                String diagnostico = resultado.getString(&quot;diagnostico&quot;);</span>
+<span class="nc" id="L72">                String pa = resultado.getString(&quot;presionArterial &quot;);</span>
+<span class="nc" id="L73">                String fc = resultado.getString(&quot;frecuenciaCardiaca &quot;);</span>
+<span class="nc" id="L74">                String fr = resultado.getString(&quot;frecuenciaRespiratoria &quot;);</span>
+<span class="nc" id="L75">                String tc = resultado.getString(&quot;temperaturaCorporal &quot;);</span>
+<span class="nc" id="L76">                String peso = resultado.getString(&quot;peso&quot;);</span>
+<span class="nc" id="L77">                String talla = resultado.getString(&quot;talla &quot;);</span>
+<span class="nc" id="L78">                int turno = resultado.getInt(&quot;turno&quot;);</span>
+<span class="nc" id="L79">                int citamedica = resultado.getInt(&quot;cita&quot;);</span>
+<span class="nc" id="L80">                Citamedica cita = ControladorCita.buscar(citamedica);</span>
+<span class="nc" id="L81">                consulta = new Consultamedica(idconsulta, sintomas, diagnostico,</span>
+                        pa, fc, fr, tc, peso, talla, turno, citamedica);
+            }
+<span class="nc" id="L84">        } catch (SQLException e) {</span>
+<span class="nc" id="L85">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="fc" id="L86">        }</span>
+<span class="fc" id="L87">        return consulta;</span>
+    }
+
+    public static List&lt;Consultamedica&gt; listar() {
+<span class="fc" id="L91">        List&lt;Consultamedica&gt; lista = new ArrayList();</span>
+<span class="fc" id="L92">        String sql = &quot;select * from consultas&quot;;</span>
+        try {
+<span class="fc" id="L94">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">            while (resultado.next()) {</span>
+<span class="nc" id="L96">                int idconsulta = resultado.getInt(&quot;id&quot;);</span>
+
+<span class="nc" id="L98">                String sintomas = resultado.getString(&quot;sintomas&quot;);</span>
+<span class="nc" id="L99">                String diagnostico = resultado.getString(&quot;diagnostico&quot;);</span>
+<span class="nc" id="L100">                String pa = resultado.getString(&quot;presionArterial &quot;);</span>
+<span class="nc" id="L101">                String fc = resultado.getString(&quot;frecuenciaCardiaca &quot;);</span>
+<span class="nc" id="L102">                String fr = resultado.getString(&quot;frecuenciaRespiratoria &quot;);</span>
+<span class="nc" id="L103">                String tc = resultado.getString(&quot;temperaturaCorporal &quot;);</span>
+<span class="nc" id="L104">                String peso = resultado.getString(&quot;peso&quot;);</span>
+<span class="nc" id="L105">                String talla = resultado.getString(&quot;talla &quot;);</span>
+<span class="nc" id="L106">                String receta = resultado.getString(&quot;receta&quot;);</span>
+<span class="nc" id="L107">                int turno = resultado.getInt(&quot;turno&quot;);</span>
+<span class="nc" id="L108">                int idcita = resultado.getInt(&quot;cita&quot;);</span>
+<span class="nc" id="L109">                Citamedica cita = ControladorCita.buscar(idcita);</span>
+<span class="nc" id="L110">                lista.add(new Consultamedica(idconsulta, sintomas, diagnostico,</span>
+                        pa, fc, fr, tc, peso, talla, turno, idcita));
+<span class="nc" id="L112">            }</span>
+<span class="nc" id="L113">        } catch (SQLException e) {</span>
+<span class="nc" id="L114">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="nc" id="L115">        }</span>
+<span class="nc" id="L116">        return lista;</span>
+    }
+
+    public static List&lt;Consultamedica&gt; listarConsultasEspecificas(String cedulaPaciente) {
+<span class="nc" id="L120">        List&lt;Consultamedica&gt; listaFiltrada = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L121">        List&lt;Consultamedica&gt; listaGeneral = listar();</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        for (int i = 0; i &lt; listaGeneral.size(); i++) {</span>
+<span class="nc" id="L123">            Consultamedica consulta = listaGeneral.get(i);</span>
+<span class="nc" id="L124">            int idcita = consulta.getCita();</span>
+<span class="nc" id="L125">            Citamedica cita = ControladorCita.buscar(idcita);</span>
+            //  Citamedica cita = consulta.getCita();
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            if (cita.getPaciente().getCedula().equals(cedulaPaciente)) {</span>
+<span class="nc" id="L128">                listaFiltrada.add(consulta);</span>
+            }
+        }
+<span class="nc" id="L131">        return listaFiltrada;</span>
+    }
+
+    public static boolean eliminar(int id) {
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (buscar(id) != null) {</span>
+<span class="nc" id="L136">            String sql = &quot;delete from consultas where id = &quot; + id + &quot;&quot;;</span>
+<span class="nc" id="L137">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L138">            return true;</span>
+        }
+<span class="nc" id="L140">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

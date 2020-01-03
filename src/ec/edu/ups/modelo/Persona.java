@@ -45,7 +45,12 @@ public class Persona implements Serializable {
     public Persona(Integer idPerosona) {
         this.idPerosona = idPerosona;
     }
-
+   public Persona(Integer idPerosona, String cedula, String nombre) {
+        this.idPerosona = idPerosona;
+        this.cedula = cedula;
+        this.nombre = nombre;
+   }
+   
     public Persona(Integer idPerosona, String cedula, String nombre, String apellido, String sexo, Date fecha, String direccion, String telefono) {
         this.idPerosona = idPerosona;
         this.cedula = cedula;

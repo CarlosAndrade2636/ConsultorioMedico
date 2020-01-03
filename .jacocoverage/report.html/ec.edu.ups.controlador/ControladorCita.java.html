@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorCita.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.controlador</a> &gt; <span class="el_source">ControladorCita.java</span></div><h1>ControladorCita.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.controlador;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import ec.edu.ups.modelo.Citamedica;
+import ec.edu.ups.modelo.Medico;
+import ec.edu.ups.modelo.Paciente;
+
+/**
+ *
+ * @author jessica
+ */
+<span class="nc" id="L21">public class ControladorCita {</span>
+
+    public static int generarID() {
+<span class="fc" id="L24">        String sql = &quot;select max(idCita) from citamedica&quot;;</span>
+<span class="fc" id="L25">        return ConexionDB.generarID(sql);</span>
+    }
+
+    public static boolean agregar(Citamedica cita) {
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (buscar(cita.getIdCita()) == null) {</span>
+<span class="nc" id="L30">            Date fecha = cita.getFechaCita();</span>
+<span class="nc" id="L31">            long cadenaFecha = fecha.getTime();</span>
+<span class="nc" id="L32">            String sql = &quot;insert into citamedica values(&quot;</span>
+<span class="nc" id="L33">                + cita.getIdCita() + &quot;, '&quot;</span>
+                + &quot;2019-12-11', '&quot;
+                + &quot;15:10:00', '&quot;
+<span class="nc" id="L36">                + cita.getMotivo()+ &quot;', &quot;</span>
+                + 2+ &quot;, &quot;
+                + 2+ &quot;, '&quot;
+<span class="nc" id="L39">                +cita.getEstado() + &quot;')&quot;;</span>
+<span class="nc" id="L40">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L41">            System.out.println(&quot;insertando...&quot;);</span>
+<span class="nc" id="L42">            return true;</span>
+        }
+<span class="nc" id="L44">        return false;</span>
+    }
+
+    public static boolean modificar(Citamedica cita) {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if(buscar(cita.getIdCita()) != null) {</span>
+<span class="nc" id="L49">            String sql = &quot;update citamedica set &quot;</span>
+<span class="nc" id="L50">                + &quot;fecha = '&quot; + cita.getFechaCita().getTime() + &quot;',&quot;</span>
+<span class="nc" id="L51">                + &quot;hora = '&quot; + cita.getHoraCita() + &quot;', &quot;</span>
+<span class="nc" id="L52">                + &quot;motivo = '&quot; + cita.getMotivo() + &quot;', &quot;</span>
+<span class="nc" id="L53">                + &quot; estado = '&quot; + cita.getEstado()+ &quot;', &quot;</span>
+<span class="nc" id="L54">                + &quot; idmedico = '&quot; + cita.getMedico().getCedula()  + &quot;', &quot;</span>
+<span class="nc" id="L55">                + &quot;idpaciente = '&quot; + cita.getPaciente().getCedula() + &quot;' &quot;</span>
+<span class="nc" id="L56">                + &quot;where idCita = &quot; + cita.getIdCita();</span>
+<span class="nc" id="L57">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L58">            System.out.println(&quot;Modificando...&quot;);</span>
+<span class="nc" id="L59">            return true;</span>
+        }
+<span class="nc" id="L61">        return false;</span>
+    }
+
+    public static boolean eliminar(int id) {
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (buscar(id) != null) {</span>
+<span class="nc" id="L66">            String sql = &quot;delete from citamedica where id = '&quot; + id + &quot;'&quot;;</span>
+<span class="nc" id="L67">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc" id="L68">            return true;</span>
+        }
+<span class="fc" id="L70">        return false;</span>
+    }
+
+    public static Citamedica buscar(int id) {
+<span class="fc" id="L74">        Citamedica cita = null;</span>
+<span class="fc" id="L75">        String sql = &quot;select * from citamedica where idCita = '&quot; + id + &quot;'&quot;;</span>
+        try {
+<span class="fc" id="L77">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (resultado.next()) {</span>
+<span class="fc" id="L79">                String fechaNoFormateada = resultado.getString(&quot;fechaCita&quot;);</span>
+<span class="fc" id="L80">             String hora = resultado.getString(&quot;horaCita&quot;);</span>
+<span class="fc" id="L81">                String motivo = resultado.getString(&quot;motivo&quot;);</span>
+<span class="fc" id="L82">                String idMedico = resultado.getString(&quot;Medico&quot;);</span>
+<span class="fc" id="L83">                String idPaciente = resultado.getString(&quot;Paciente&quot;);</span>
+<span class="fc" id="L84">                  String estado = resultado.getString(&quot;estado&quot;);</span>
+                
+<span class="fc" id="L86">               Medico medico = (Medico) ControladorPersona.buscar(idMedico, &quot;medico&quot;);</span>
+<span class="fc" id="L87">               Paciente paciente = (Paciente) ControladorPersona.buscar(idPaciente, &quot;paciente&quot;);</span>
+<span class="nc" id="L88">                Date fechaFormateada = new Date(Long.valueOf(fechaNoFormateada));</span>
+<span class="nc" id="L89">                Date horaFormatedara = new Date(Long.valueOf(hora));</span>
+<span class="nc" id="L90">                cita = new Citamedica(id, fechaFormateada, horaFormatedara, motivo, estado, medico, paciente);</span>
+            }
+<span class="nc" id="L92">        } catch (SQLException e) {</span>
+<span class="nc" id="L93">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="fc" id="L94">        } </span>
+<span class="fc" id="L95">        return cita;</span>
+    }
+
+    public static List&lt;Citamedica&gt; listar() {
+<span class="nc" id="L99">        List&lt;Citamedica&gt; lista = new ArrayList();</span>
+<span class="nc" id="L100">        String sql = &quot;select * from citamedica&quot;;</span>
+        try {
+<span class="nc" id="L102">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            while (resultado.next()) {</span>
+<span class="nc" id="L104">                int id = resultado.getInt(&quot;idCita&quot;);</span>
+<span class="nc" id="L105">                String fechaNoFormateada = resultado.getString(&quot;fechaCita&quot;);</span>
+<span class="nc" id="L106">                String hora = resultado.getString(&quot;horaCita&quot;);</span>
+<span class="nc" id="L107">                String motivo = resultado.getString(&quot;motivo&quot;);</span>
+<span class="nc" id="L108">                String estado = resultado.getString(&quot;estado&quot;);</span>
+<span class="nc" id="L109">                String idMedico = resultado.getString(&quot;medico&quot;);</span>
+<span class="nc" id="L110">                String idPaciente = resultado.getString(&quot;paciente&quot;);</span>
+<span class="nc" id="L111">                Medico medico = (Medico) ControladorPersona.buscar(idMedico, &quot;medico&quot;);</span>
+<span class="nc" id="L112">                Paciente paciente = (Paciente) ControladorPersona.buscar(idPaciente, &quot;paciente&quot;);</span>
+<span class="nc" id="L113">                Date fechaFormateada = new Date(Long.valueOf(fechaNoFormateada));</span>
+<span class="nc" id="L114">                 Date horaFormatedara = new Date(Long.valueOf(hora));</span>
+<span class="nc" id="L115">                lista.add(new Citamedica(id, fechaFormateada, horaFormatedara, motivo, estado, medico, paciente));</span>
+<span class="nc" id="L116">            }</span>
+<span class="nc" id="L117">        } catch (SQLException e) {</span>
+<span class="nc" id="L118">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="nc" id="L119">        }</span>
+<span class="nc" id="L120">        return lista;</span>
+    }
+    
+    public static List&lt;Citamedica&gt; listarCitasNoAsistidas(String cedulaPaciente) {
+<span class="nc" id="L124">        List&lt;Citamedica&gt; listaFiltrada = new ArrayList();</span>
+<span class="nc" id="L125">        String sql = &quot;select * from citamedica where idPaciente = '&quot; + cedulaPaciente + &quot;'&quot;</span>
+                   + &quot;and estado = 'No asistido'&quot;;
+        try {
+<span class="nc" id="L128">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">            while (resultado.next()) {</span>
+<span class="nc" id="L130">                int id = resultado.getInt(&quot;idCita&quot;);</span>
+<span class="nc" id="L131">                String fechaNoFormateada = resultado.getString(&quot;fechaCita&quot;);</span>
+<span class="nc" id="L132">                String hora = resultado.getString(&quot;horaCita&quot;);</span>
+<span class="nc" id="L133">                String motivo = resultado.getString(&quot;motivo&quot;);</span>
+<span class="nc" id="L134">                String estado = resultado.getString(&quot;estado&quot;);</span>
+<span class="nc" id="L135">                String idMedico = resultado.getString(&quot;medico&quot;);</span>
+<span class="nc" id="L136">                String idPaciente = resultado.getString(&quot;paciente&quot;);</span>
+<span class="nc" id="L137">                Medico medico = (Medico) ControladorPersona.buscar(idMedico, &quot;medico&quot;);</span>
+<span class="nc" id="L138">                Paciente paciente = (Paciente) ControladorPersona.buscar(idPaciente, &quot;paciente&quot;);</span>
+<span class="nc" id="L139">                Date fechaFormateada = new Date(Long.valueOf(fechaNoFormateada));</span>
+<span class="nc" id="L140">                 Date horaFormatedara = new Date(Long.valueOf(hora));</span>
+<span class="nc" id="L141">                listaFiltrada.add(new Citamedica(id, fechaFormateada, horaFormatedara, motivo, estado, medico, paciente));</span>
+<span class="nc" id="L142">             }</span>
+<span class="nc" id="L143">        } catch (SQLException e) {</span>
+<span class="nc" id="L144">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="nc" id="L145">        }</span>
+<span class="nc" id="L146">        return listaFiltrada;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

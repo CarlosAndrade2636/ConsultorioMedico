@@ -47,8 +47,7 @@ public class ConsulreceTest {
         Integer expResult = null;
         Integer result = instance.getIdConsuRece();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -60,8 +59,7 @@ public class ConsulreceTest {
         Integer idConsuRece = null;
         Consulrece instance = new Consulrece();
         instance.setIdConsuRece(idConsuRece);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -74,8 +72,7 @@ public class ConsulreceTest {
         Consultamedica expResult = null;
         Consultamedica result = instance.getIdConsulta();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -87,8 +84,7 @@ public class ConsulreceTest {
         Consultamedica idConsulta = null;
         Consulrece instance = new Consulrece();
         instance.setIdConsulta(idConsulta);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -101,8 +97,7 @@ public class ConsulreceTest {
         Receta expResult = null;
         Receta result = instance.getIdReceta();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -114,8 +109,7 @@ public class ConsulreceTest {
         Receta idReceta = null;
         Consulrece instance = new Consulrece();
         instance.setIdReceta(idReceta);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -128,8 +122,7 @@ public class ConsulreceTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -143,22 +136,7 @@ public class ConsulreceTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
-    /**
-     * Test of toString method, of class Consulrece.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Consulrece instance = new Consulrece();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

@@ -48,8 +48,7 @@ public class PersonaTest {
         Integer expResult = null;
         Integer result = instance.getIdPerosona();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -61,8 +60,7 @@ public class PersonaTest {
         Integer idPerosona = null;
         Persona instance = new Persona();
         instance.setIdPerosona(idPerosona);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
     }
 
     /**
@@ -75,8 +73,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getCedula();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -88,8 +85,7 @@ public class PersonaTest {
         String cedula = "";
         Persona instance = new Persona();
         instance.setCedula(cedula);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -102,8 +98,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getNombre();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -115,8 +110,7 @@ public class PersonaTest {
         String nombre = "";
         Persona instance = new Persona();
         instance.setNombre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -129,8 +123,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getApellido();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -142,8 +135,7 @@ public class PersonaTest {
         String apellido = "";
         Persona instance = new Persona();
         instance.setApellido(apellido);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -156,8 +148,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getSexo();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -169,8 +160,7 @@ public class PersonaTest {
         String sexo = "";
         Persona instance = new Persona();
         instance.setSexo(sexo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -183,8 +173,7 @@ public class PersonaTest {
         Date expResult = null;
         Date result = instance.getFecha();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -196,8 +185,7 @@ public class PersonaTest {
         Date fecha = null;
         Persona instance = new Persona();
         instance.setFecha(fecha);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -210,8 +198,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getDireccion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -223,8 +210,7 @@ public class PersonaTest {
         String direccion = "";
         Persona instance = new Persona();
         instance.setDireccion(direccion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
     /**
@@ -237,8 +223,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.getTelefono();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -250,8 +235,7 @@ public class PersonaTest {
         String telefono = "";
         Persona instance = new Persona();
         instance.setTelefono(telefono);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -264,8 +248,7 @@ public class PersonaTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -279,8 +262,7 @@ public class PersonaTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -293,8 +275,7 @@ public class PersonaTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
     
 }

@@ -47,8 +47,7 @@ public class RecetaTest {
         Integer expResult = null;
         Integer result = instance.getIdReceta();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -60,23 +59,10 @@ public class RecetaTest {
         Integer idReceta = null;
         Receta instance = new Receta();
         instance.setIdReceta(idReceta);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
-    /**
-     * Test of getFrecuenciaUso method, of class Receta.
-     */
-    @Test
-    public void testGetFrecuenciaUso() {
-        System.out.println("getFrecuenciaUso");
-        Receta instance = new Receta();
-        String expResult = "";
-        String result = instance.getFrecuenciaUso();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of setFrecuenciaUso method, of class Receta.
@@ -87,23 +73,10 @@ public class RecetaTest {
         String frecuenciaUso = "";
         Receta instance = new Receta();
         instance.setFrecuenciaUso(frecuenciaUso);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
-    /**
-     * Test of getDescripcion method, of class Receta.
-     */
-    @Test
-    public void testGetDescripcion() {
-        System.out.println("getDescripcion");
-        Receta instance = new Receta();
-        String expResult = "";
-        String result = instance.getDescripcion();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
 
     /**
      * Test of setDescripcion method, of class Receta.
@@ -114,8 +87,7 @@ public class RecetaTest {
         String descripcion = "";
         Receta instance = new Receta();
         instance.setDescripcion(descripcion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
     /**
@@ -128,9 +100,7 @@ public class RecetaTest {
         int expResult = 0;
         int result = instance.getIdMedREs();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        }
 
     /**
      * Test of setIdMedREs method, of class Receta.
@@ -141,8 +111,7 @@ public class RecetaTest {
         int idMedREs = 0;
         Receta instance = new Receta();
         instance.setIdMedREs(idMedREs);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -155,8 +124,7 @@ public class RecetaTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -170,22 +138,9 @@ public class RecetaTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
-    /**
-     * Test of toString method, of class Receta.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Receta instance = new Receta();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
     
 }

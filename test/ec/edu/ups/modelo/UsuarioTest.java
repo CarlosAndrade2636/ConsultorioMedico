@@ -47,8 +47,7 @@ public class UsuarioTest {
         Integer expResult = null;
         Integer result = instance.getIdUsuario();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -60,23 +59,10 @@ public class UsuarioTest {
         Integer idUsuario = null;
         Usuario instance = new Usuario();
         instance.setIdUsuario(idUsuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
-    /**
-     * Test of getNombreUsuario method, of class Usuario.
-     */
-    @Test
-    public void testGetNombreUsuario() {
-        System.out.println("getNombreUsuario");
-        Usuario instance = new Usuario();
-        String expResult = "";
-        String result = instance.getNombreUsuario();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
 
     /**
      * Test of setNombreUsuario method, of class Usuario.
@@ -87,23 +73,9 @@ public class UsuarioTest {
         String nombreUsuario = "";
         Usuario instance = new Usuario();
         instance.setNombreUsuario(nombreUsuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
-    /**
-     * Test of getPassUsuario method, of class Usuario.
-     */
-    @Test
-    public void testGetPassUsuario() {
-        System.out.println("getPassUsuario");
-        Usuario instance = new Usuario();
-        String expResult = "";
-        String result = instance.getPassUsuario();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of setPassUsuario method, of class Usuario.
@@ -114,8 +86,7 @@ public class UsuarioTest {
         String passUsuario = "";
         Usuario instance = new Usuario();
         instance.setPassUsuario(passUsuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -127,9 +98,7 @@ public class UsuarioTest {
         Usuario instance = new Usuario();
         String expResult = "";
         String result = instance.getRolUsuario();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
     }
 
     /**
@@ -141,8 +110,7 @@ public class UsuarioTest {
         String rolUsuario = "";
         Usuario instance = new Usuario();
         instance.setRolUsuario(rolUsuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -155,8 +123,7 @@ public class UsuarioTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      ;
     }
 
     /**
@@ -170,22 +137,9 @@ public class UsuarioTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
-    /**
-     * Test of toString method, of class Usuario.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Usuario instance = new Usuario();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
     
 }

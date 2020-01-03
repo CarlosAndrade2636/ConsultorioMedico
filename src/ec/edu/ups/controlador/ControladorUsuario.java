@@ -11,41 +11,41 @@ import ec.edu.ups.modelo.Usuario;
  * @author jessica
  */
 public class ControladorUsuario {
-    
+
     public static int generarID() {
-        String sql = "select max(id) from usuarios";
+        String sql = "select max(idUsuario) from usuario";
         return ConexionDB.generarID(sql);
     }
-    
+
     public static boolean agregar(Usuario usuario) {
         if (buscar(usuario.getNombreUsuario()) == null) {
-            String sql = "insert into usuarios values(" +
-                      usuario.getIdUsuario() + ", '" + 
-                      usuario.getNombreUsuario() + "', '" +
-                      usuario.getPassUsuario()+ "', '" +
-                      usuario.getRolUsuario() + "')";
+            String sql = "insert into usuarios values("
+                    + usuario.getIdUsuario() + ", '"
+                    + usuario.getNombreUsuario() + "', '"
+                    + usuario.getPassUsuario() + "', '"
+                    + usuario.getRolUsuario() + "')";
             ConexionDB.ejecutarSentencia(sql);
             return true;
         }
         return false;
     }
-    
+
     public static boolean modificar(String nombre, Usuario usuario) {
         if (buscar(nombre) != null) {
-            String sql = "update usuarios set " + 
-                         "nombre = '" + usuario.getNombreUsuario() + "'," +
-                         "clave = '" + usuario.getPassUsuario() + "'," +
-                         "rol = '" + usuario.getRolUsuario()  +"' " +  
-                         "where id = " + usuario.getIdUsuario();
+            String sql = "update usuario set "
+                    + "nombre = '" + usuario.getNombreUsuario() + "',"
+                    + "clave = '" + usuario.getPassUsuario() + "',"
+                    + "rol = '" + usuario.getRolUsuario() + "' "
+                    + "where id = " + usuario.getIdUsuario();
             ConexionDB.ejecutarSentencia(sql);
             return true;
         }
         return false;
-    } 
-    
+    }
+
     public static Usuario buscar(String nombreUsuario) {
         Usuario usuario = null;
-        String sql = "select * from usuarios where nombre = '" + nombreUsuario + "'";
+        String sql = "select * from usuario where nombreUsuario = '" + nombreUsuario + "'";
         try {
             ResultSet resultado = ConexionDB.ejecutarConsulta(sql);
             if (resultado.next()) {
@@ -60,7 +60,7 @@ public class ControladorUsuario {
         }
         return usuario;
     }
-    
+
     public static boolean eliminar(String nombreUsuario) {
         if (buscar(nombreUsuario) != null) {
             String sql = "delete from usuarios where nombre = '" + nombreUsuario + "'";
@@ -69,7 +69,7 @@ public class ControladorUsuario {
         }
         return false;
     }
-    
+
     public static List<Usuario> listar() {
         List<Usuario> lista = new ArrayList();
         String sql = "select * from usuarios";

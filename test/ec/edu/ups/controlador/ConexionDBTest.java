@@ -7,6 +7,9 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Usuario;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,9 +47,10 @@ public class ConexionDBTest {
      */
     @Test
     public void testEjecutarSentencia() {
-     
+      System.out.println("testEjecutarSentencia");
+        String sql = "UPDATE `paciente` SET `etnia`='Ecuatoriana' WHERE 1;";
         boolean expResult = false;
-        boolean result = ConexionDB.ejecutarSentencia("");
+        boolean result = ConexionDB.ejecutarSentencia(sql);
         assertEquals(expResult, result);
        
     }
@@ -56,50 +60,38 @@ public class ConexionDBTest {
      */
     @Test
     public void testEjecutarConsulta() {
-        
-        ResultSet expResult = null;
-        ResultSet result = ConexionDB.ejecutarConsulta("");
-        assertEquals(expResult, result);
+         System.out.println("testEjecutarConsulta");
+        String sql = "SELECT `tipoSangre` FROM `paciente` WHERE `idPaciente`= 2;";
+        String expResult = "orh+";
+        ResultSet result = ConexionDB.ejecutarConsulta(sql);
+        try {
+            if (result.next()) {
+                
+                String    tiposangre = result.getString("tipoSangre");
+                 assertEquals(expResult, tiposangre);
+                  System.out.println( "expResult  "+expResult+" result "+ tiposangre);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDBTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
        
     }
 
-    /**
-     * Test of getUsuarioSesion method, of class ConexionDB.
-     */
-//    @Test
-//    public void testGetUsuarioSesion() {
-//        System.out.println("getUsuarioSesion");
-//        Usuario expResult = null;
-//        Usuario result = ConexionDB.getUsuarioSesion();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
 
-    /**
-     * Test of setUsuarioSesion method, of class ConexionDB.
-     */
-//    @Test
-//    public void testSetUsuarioSesion() {
-//        System.out.println("setUsuarioSesion");
-//        Usuario usuarioSesion = null;
-//        ConexionDB.setUsuarioSesion(usuarioSesion);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
 
     /**
      * Test of generarID method, of class ConexionDB.
      */
-//    @Test
-//    public void testGenerarID() {
-//        System.out.println("generarID");
-//        String sql = "";
-//        int expResult = 0;
-//        int result = ConexionDB.generarID(sql);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testGenerarID() {
+        System.out.println("generarID");
+        String sql = "select max(idPaciente) from paciente;";
+        int expResult = 3;
+        int result = ConexionDB.generarID(sql);
+        assertEquals(expResult, result);
+         System.out.println( "expResult  "+expResult+" result "+ result);
+    }
     
 }

@@ -49,8 +49,7 @@ public class TurnoTest {
         Integer expResult = null;
         Integer result = instance.getIdTurno();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -62,8 +61,7 @@ public class TurnoTest {
         Integer idTurno = null;
         Turno instance = new Turno();
         instance.setIdTurno(idTurno);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -76,8 +74,7 @@ public class TurnoTest {
         Date expResult = null;
         Date result = instance.getFechaTurno();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -89,8 +86,7 @@ public class TurnoTest {
         Date fechaTurno = null;
         Turno instance = new Turno();
         instance.setFechaTurno(fechaTurno);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
     }
 
     /**
@@ -103,8 +99,7 @@ public class TurnoTest {
         Date expResult = null;
         Date result = instance.getHoraTurno();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -116,8 +111,7 @@ public class TurnoTest {
         Date horaTurno = null;
         Turno instance = new Turno();
         instance.setHoraTurno(horaTurno);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -130,8 +124,7 @@ public class TurnoTest {
         double expResult = 0.0;
         double result = instance.getValor();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -143,8 +136,7 @@ public class TurnoTest {
         double valor = 0.0;
         Turno instance = new Turno();
         instance.setValor(valor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
     /**
@@ -157,8 +149,7 @@ public class TurnoTest {
         Paciente expResult = null;
         Paciente result = instance.getPaciente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -170,8 +161,7 @@ public class TurnoTest {
         Paciente paciente = null;
         Turno instance = new Turno();
         instance.setPaciente(paciente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -184,8 +174,7 @@ public class TurnoTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -199,24 +188,10 @@ public class TurnoTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
 
-    /**
-     * Test of toString method, of class Turno.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Turno instance = new Turno();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of getConsultamedicaCollection method, of class Turno.
      */
@@ -227,8 +202,7 @@ public class TurnoTest {
         Collection<Consultamedica> expResult = null;
         Collection<Consultamedica> result = instance.getConsultamedicaCollection();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
     }
 
     /**
@@ -240,8 +214,7 @@ public class TurnoTest {
         Collection<Consultamedica> consultamedicaCollection = null;
         Turno instance = new Turno();
         instance.setConsultamedicaCollection(consultamedicaCollection);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
     
 }

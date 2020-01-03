@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorPersona.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.controlador</a> &gt; <span class="el_source">ControladorPersona.java</span></div><h1>ControladorPersona.java</h1><pre class="source lang-java linenums">package ec.edu.ups.controlador;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import ec.edu.ups.modelo.Medico;
+import ec.edu.ups.modelo.Paciente;
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Usuario;
+
+/**
+ *
+ * @author jessica
+ */
+<span class="nc" id="L18">public class ControladorPersona {</span>
+
+    public static int generarID() {
+<span class="fc" id="L21">        String sql = &quot;select max(idPerosona) from persona&quot;;</span>
+<span class="fc" id="L22">        return ConexionDB.generarID(sql);</span>
+    }
+
+    public static boolean agregar(Persona persona, String tipo) {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (buscar(persona.getCedula(), tipo) == null) {</span>
+<span class="nc" id="L27">            String sql = &quot;insert into perosonas values(&quot;</span>
+<span class="nc" id="L28">                    + persona.getIdPerosona() + &quot;,'&quot;</span>
+<span class="nc" id="L29">                    + persona.getCedula() + &quot;', '&quot;</span>
+<span class="nc" id="L30">                    + persona.getNombre() + &quot;', '&quot;</span>
+<span class="nc" id="L31">                    + persona.getApellido() + &quot;')&quot;;</span>
+<span class="nc" id="L32">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">            if (tipo.equals(&quot;medico&quot;)) {</span>
+<span class="nc" id="L34">                Medico medico = (Medico) persona;</span>
+<span class="nc" id="L35">                sql = &quot;insert into medicos values(&quot;</span>
+<span class="nc" id="L36">                        + medico.getIdMedico() + &quot;,'&quot;</span>
+<span class="nc" id="L37">                        + medico.getDireccion() + &quot;', '&quot;</span>
+<span class="nc" id="L38">                        + medico.getCorreoMedico() + &quot;', '&quot;</span>
+<span class="nc" id="L39">                        + medico.getEspecialidadMedico() + &quot;',&quot;</span>
+<span class="nc" id="L40">                        + medico.getPersonaMedico().getIdPerosona() + &quot;)&quot;;</span>
+<span class="nc" id="L41">                ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            } else if (tipo.equals(&quot;paciente&quot;)) {       //arreglar faltan campos </span>
+<span class="nc" id="L43">                Paciente paciente = (Paciente) persona;</span>
+<span class="nc" id="L44">                SimpleDateFormat formato = new SimpleDateFormat(&quot;dd-MM-YYYY&quot;);</span>
+<span class="nc" id="L45">                String fechaFormateada = formato.format(paciente.getFecha());</span>
+<span class="nc" id="L46">                sql = &quot;insert into pacientes values(&quot;</span>
+<span class="nc" id="L47">                        + paciente.getIdPaciente() + &quot;, '&quot;</span>
+<span class="nc" id="L48">                        + String.valueOf(paciente.getSexo()) + &quot;', '&quot;</span>
+                        + fechaFormateada + &quot;', '&quot;
+<span class="nc" id="L50">                        + paciente.getTipoSangre() + &quot;', '&quot;</span>
+<span class="nc" id="L51">                        + paciente.getLugarNac() + &quot;', '&quot;</span>
+<span class="nc" id="L52">                        + paciente.getEtnia() + &quot;', '&quot;</span>
+<span class="nc" id="L53">                        + paciente.getTelefono() + &quot;')&quot;;</span>
+<span class="nc" id="L54">                ConexionDB.ejecutarSentencia(sql);</span>
+            }
+<span class="nc" id="L56">            return true;</span>
+        }
+<span class="nc" id="L58">        return false;</span>
+    }
+
+    public static boolean modificar(Persona persona, String tipo) {
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (buscar(persona.getCedula(), tipo) != null) {</span>
+<span class="nc" id="L63">            String sql = &quot;update personas set &quot;</span>
+<span class="nc" id="L64">                    + &quot;cedula = '&quot; + persona.getCedula() + &quot;',&quot;</span>
+<span class="nc" id="L65">                    + &quot;nombre = '&quot; + persona.getNombre() + &quot;',&quot;</span>
+<span class="nc" id="L66">                    + &quot;apellido = '&quot; + persona.getApellido() + &quot;' &quot;</span>
+<span class="nc" id="L67">                    + &quot;where id = &quot; + persona.getIdPerosona();</span>
+<span class="nc" id="L68">            ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            if (tipo.equals(&quot;medico&quot;)) {</span>
+<span class="nc" id="L70">                Medico medico = (Medico) persona;</span>
+<span class="nc" id="L71">                sql = &quot;update medicos set &quot;</span>
+<span class="nc" id="L72">                        + &quot;direccion = '&quot; + medico.getDireccion() + &quot;',&quot;</span>
+<span class="nc" id="L73">                        + &quot;email = '&quot; + medico.getCorreoMedico() + &quot;',&quot;</span>
+<span class="nc" id="L74">                        + &quot;especialidad = '&quot; + medico.getEspecialidadMedico() + &quot;',&quot;</span>
+<span class="nc" id="L75">                        + &quot;idUsuario = '&quot; + medico.getUsuarioMedico().getIdUsuario()</span>
+<span class="nc" id="L76">                        + &quot;where id = '&quot; + medico.getIdMedico();</span>
+<span class="nc" id="L77">                ConexionDB.ejecutarSentencia(sql);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">            } else if (tipo.equals(&quot;paciente&quot;)) {</span>
+<span class="nc" id="L79">                Paciente paciente = (Paciente) persona;</span>
+<span class="nc" id="L80">                SimpleDateFormat formato = new SimpleDateFormat(&quot;dd-MM-YYYY&quot;);</span>
+<span class="nc" id="L81">                String fechaFormateada = formato.format(paciente.getFecha());</span>
+<span class="nc" id="L82">                sql = &quot;update pacientes set &quot;</span>
+<span class="nc" id="L83">                        + &quot;sexo = '&quot; + String.valueOf(paciente.getSexo()) + &quot;',&quot;</span>
+                        + &quot;fechaNacimiento = '&quot; + fechaFormateada + &quot;',&quot;
+<span class="nc" id="L85">                        + &quot;tipoSangre = '&quot; + paciente.getTipoSangre() + &quot;',&quot;</span>
+<span class="nc" id="L86">                        + &quot;procedencia = '&quot; + paciente.getLugarNac() + &quot;',&quot;</span>
+<span class="nc" id="L87">                        + &quot;etnia = '&quot; + paciente.getEtnia() + &quot;',&quot;</span>
+<span class="nc" id="L88">                        + &quot;telefono = '&quot; + paciente.getTelefono() + &quot;' &quot;</span>
+<span class="nc" id="L89">                        + &quot;where id = &quot; + paciente.getIdPaciente();</span>
+<span class="nc" id="L90">                ConexionDB.ejecutarSentencia(sql);</span>
+            }
+<span class="nc" id="L92">            return true;</span>
+        }
+<span class="fc" id="L94">        return false;</span>
+    }
+
+    public static Persona buscar(String cedula, String tipo) {
+<span class="fc" id="L98">        Persona persona = null;</span>
+<span class="fc" id="L99">        String sql = &quot;select * from persona where cedula = '&quot; + cedula + &quot;'&quot;;</span>
+        try {
+<span class="fc" id="L101">            ResultSet resultadoPersona = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">            if (resultadoPersona.next()) {</span>
+<span class="nc" id="L103">                int id = resultadoPersona.getInt(&quot;id&quot;);</span>
+<span class="nc" id="L104">                String nombre = resultadoPersona.getString(&quot;nombre&quot;);</span>
+<span class="nc" id="L105">                String apellido = resultadoPersona.getString(&quot;apellido&quot;);</span>
+<span class="nc" id="L106">                String sexo = resultadoPersona.getString(&quot;sexo&quot;);</span>
+<span class="nc" id="L107">                Date fechaNacimiento = resultadoPersona.getDate(&quot;fecha&quot;);</span>
+<span class="nc" id="L108">                String direccion = resultadoPersona.getString(&quot;direccion&quot;);</span>
+<span class="nc" id="L109">                String telefono = resultadoPersona.getString(&quot;telefono&quot;);</span>
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">                if (tipo.equals(&quot;medico&quot;)) {</span>
+<span class="nc" id="L112">                    sql = &quot;select * from medicos where id = &quot; + id;</span>
+<span class="nc" id="L113">                    ResultSet resultadoMedico = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">                    if (!resultadoMedico.next()) {</span>
+<span class="nc" id="L115">                        return null;</span>
+                    }
+<span class="nc" id="L117">                    String correoMedico = resultadoMedico.getString(&quot;correoMedico&quot;);</span>
+<span class="nc" id="L118">                    String especialidadMedico = resultadoMedico.getString(&quot;especialidadMedico&quot;);</span>
+<span class="nc" id="L119">                    Usuario usuario = ControladorUsuario.buscar(cedula);</span>
+
+<span class="nc" id="L121">                    persona = new Medico(id, cedula, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, correoMedico, especialidadMedico, usuario);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                } else if (tipo.equals(&quot;paciente&quot;)) {</span>
+<span class="nc" id="L123">                    sql = &quot;select * from pacientes where id = &quot; + id;</span>
+<span class="nc" id="L124">                    ResultSet resultadoPaciente = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                    if (!resultadoPaciente.next()) {</span>
+<span class="nc" id="L126">                        return null;</span>
+                    }
+<span class="nc" id="L128">                    Date fecha = resultadoPaciente.getDate(&quot;fechanacimiento&quot;);</span>
+<span class="nc" id="L129">                    String tipoSangre = resultadoPaciente.getString(&quot;tiposangre&quot;);</span>
+<span class="nc" id="L130">                    String etnia = resultadoPaciente.getString(&quot;etnia&quot;);</span>
+<span class="nc" id="L131">                    String lugarNac = resultadoPaciente.getString(&quot;lugarNac&quot;);</span>
+<span class="nc" id="L132">                    persona = new Paciente(id, cedula, nombre, apellido, sexo, fecha,</span>
+                            direccion, telefono, tipoSangre, lugarNac, etnia);
+                }
+            }
+<span class="nc" id="L136">        } catch (SQLException e) {</span>
+<span class="nc" id="L137">            System.out.println(&quot;Error buscar: &quot; + e.getMessage());</span>
+<span class="nc" id="L138">            e.printStackTrace();</span>
+<span class="fc" id="L139">        }</span>
+<span class="fc" id="L140">        return persona;</span>
+    }
+
+    public static boolean eliminar(String cedula, String tipo) {
+<span class="fc" id="L144">        Persona persona = buscar(cedula, tipo);</span>
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">        if (persona != null) {</span>
+<span class="nc" id="L146">            String sqlA = &quot;delete from personas where cedula = '&quot; + cedula + &quot;'&quot;;</span>
+<span class="nc" id="L147">            String sqlB = &quot;&quot;;</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            if (tipo.equals(&quot;medico&quot;)) {</span>
+<span class="nc" id="L149">                sqlB = &quot;delete from medicos where id = &quot; + persona.getIdPerosona();</span>
+<span class="nc" id="L150">                ControladorUsuario.eliminar(cedula);</span>
+            } else {
+<span class="nc" id="L152">                sqlB = &quot;delete from pacientes where id = &quot; + persona.getIdPerosona();</span>
+            }
+<span class="nc" id="L154">            ConexionDB.ejecutarSentencia(sqlA);</span>
+<span class="nc" id="L155">            ConexionDB.ejecutarConsulta(sqlB);</span>
+<span class="nc" id="L156">            return true;</span>
+        }
+<span class="fc" id="L158">        return false;</span>
+    }
+
+    public static List&lt;Medico&gt; listarMedicos() {
+<span class="nc" id="L162">        List&lt;Medico&gt; lista = new ArrayList();</span>
+        try {
+<span class="nc" id="L164">            String sql = &quot;select cedula from personas&quot;;;</span>
+<span class="nc" id="L165">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            for (int i = 1; resultado.next(); i++) {</span>
+<span class="nc" id="L167">                Medico medico = (Medico) buscar(resultado.getString(&quot;cedula&quot;), &quot;medico&quot;);</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">                if (medico != null) {</span>
+<span class="nc" id="L169">                    lista.add(medico);</span>
+                }
+            }
+<span class="nc" id="L172">        } catch (SQLException e) {</span>
+<span class="nc" id="L173">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="nc" id="L174">        }</span>
+<span class="nc" id="L175">        return lista;</span>
+    }
+
+    public static List&lt;Paciente&gt; listarPacientes() {
+<span class="nc" id="L179">        List&lt;Paciente&gt; lista = new ArrayList();</span>
+        try {
+<span class="nc" id="L181">            String sql = &quot;select cedula from personas&quot;;;</span>
+<span class="nc" id="L182">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">            for (int i = 1; resultado.next(); i++) {</span>
+<span class="nc" id="L184">                Paciente paciente = (Paciente) buscar(resultado.getString(&quot;cedula&quot;), &quot;paciente&quot;);</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">                if (paciente != null) {</span>
+<span class="nc" id="L186">                    lista.add(paciente);</span>
+                }
+            }
+<span class="nc" id="L189">        } catch (SQLException e) {</span>
+<span class="nc" id="L190">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="nc" id="L191">        }</span>
+<span class="nc" id="L192">        return lista;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

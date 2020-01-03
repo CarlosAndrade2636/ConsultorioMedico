@@ -112,7 +112,6 @@ public class InicioSesion extends javax.swing.JFrame {
             if (usuario.getNombreUsuario().equals(nombreUsuario) &&
                 usuario.getPassUsuario().equals(clave)) {
                 ConexionDB.setUsuarioSesion(usuario);
-                new MenuSeleccion().setVisible(true);
                 this.dispose();
             } else {
                 limpiarCampos();

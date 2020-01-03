@@ -56,11 +56,11 @@ public class ConexionDB {
      
          try {
             conectar();
-            Statement sta = (Statement) conexion.createStatement();
+            Statement sta =conexion.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+           desconectar();
         } catch (SQLException ex) {
-            System.out.println("Error de sql : " + ex.getMessage());
+            System.out.println("Error de sql ejecutarSentencia : " + ex.getMessage());
         }
         return false;
     }
@@ -72,7 +72,7 @@ public class ConexionDB {
             Statement sentencia = conexion.createStatement();
             resultado = sentencia.executeQuery(sql);
             resultado.setFetchDirection(ResultSet.FETCH_FORWARD);
-            conexion.close();
+            
         } catch (SQLException e) {
             System.out.println("Error consulta: " + e.getMessage());
         }
@@ -90,13 +90,18 @@ public class ConexionDB {
     public static int generarID(String sql) {
         int id = 0;
         try {
+          
             ResultSet resultado = ConexionDB.ejecutarConsulta(sql);
+          
             if (resultado.next()) {
-                id = resultado.getInt("max") + 1;
+          
+                id = resultado.getInt(1) + 1;
+               
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+         desconectar();
         return id;
     }
 }

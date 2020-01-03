@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Turno.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.modelo</a> &gt; <span class="el_source">Turno.java</span></div><h1>Turno.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.modelo;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+/**
+ *
+ * @author USER
+ */
+
+public class Turno implements Serializable {
+
+    private Collection&lt;Consultamedica&gt; consultamedicaCollection;
+
+    private static final long serialVersionUID = 1L;
+ 
+    private Integer idTurno;
+
+    private Date fechaTurno;
+
+    private Date horaTurno;
+
+    private double valor;
+
+    private Paciente paciente;
+
+<span class="fc" id="L36">    public Turno() {</span>
+<span class="fc" id="L37">    }</span>
+
+<span class="nc" id="L39">    public Turno(Integer idTurno) {</span>
+<span class="nc" id="L40">        this.idTurno = idTurno;</span>
+<span class="nc" id="L41">    }</span>
+
+<span class="nc" id="L43">    public Turno(Integer idTurno, Date fechaTurno, Date horaTurno, double valor) {</span>
+<span class="nc" id="L44">        this.idTurno = idTurno;</span>
+<span class="nc" id="L45">        this.fechaTurno = fechaTurno;</span>
+<span class="nc" id="L46">        this.horaTurno = horaTurno;</span>
+<span class="nc" id="L47">        this.valor = valor;</span>
+<span class="nc" id="L48">    }</span>
+
+    public Integer getIdTurno() {
+<span class="fc" id="L51">        return idTurno;</span>
+    }
+
+    public void setIdTurno(Integer idTurno) {
+<span class="fc" id="L55">        this.idTurno = idTurno;</span>
+<span class="fc" id="L56">    }</span>
+
+    public Date getFechaTurno() {
+<span class="fc" id="L59">        return fechaTurno;</span>
+    }
+
+    public void setFechaTurno(Date fechaTurno) {
+<span class="fc" id="L63">        this.fechaTurno = fechaTurno;</span>
+<span class="fc" id="L64">    }</span>
+
+    public Date getHoraTurno() {
+<span class="fc" id="L67">        return horaTurno;</span>
+    }
+
+    public void setHoraTurno(Date horaTurno) {
+<span class="fc" id="L71">        this.horaTurno = horaTurno;</span>
+<span class="fc" id="L72">    }</span>
+
+    public double getValor() {
+<span class="fc" id="L75">        return valor;</span>
+    }
+
+    public void setValor(double valor) {
+<span class="fc" id="L79">        this.valor = valor;</span>
+<span class="fc" id="L80">    }</span>
+
+    public Paciente getPaciente() {
+<span class="fc" id="L83">        return paciente;</span>
+    }
+
+    public void setPaciente(Paciente paciente) {
+<span class="fc" id="L87">        this.paciente = paciente;</span>
+<span class="fc" id="L88">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L92">        int hash = 0;</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        hash += (idTurno != null ? idTurno.hashCode() : 0);</span>
+<span class="fc" id="L94">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if (!(object instanceof Turno)) {</span>
+<span class="fc" id="L101">            return false;</span>
+        }
+<span class="nc" id="L103">        Turno other = (Turno) object;</span>
+<span class="nc bnc" id="L104" title="All 8 branches missed.">        if ((this.idTurno == null &amp;&amp; other.idTurno != null) || (this.idTurno != null &amp;&amp; !this.idTurno.equals(other.idTurno))) {</span>
+<span class="nc" id="L105">            return false;</span>
+        }
+<span class="nc" id="L107">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L112">        return &quot;modelo.Turno[ idTurno=&quot; + idTurno + &quot; ]&quot;;</span>
+    }
+
+    @XmlTransient
+    public Collection&lt;Consultamedica&gt; getConsultamedicaCollection() {
+<span class="fc" id="L117">        return consultamedicaCollection;</span>
+    }
+
+    public void setConsultamedicaCollection(Collection&lt;Consultamedica&gt; consultamedicaCollection) {
+<span class="fc" id="L121">        this.consultamedicaCollection = consultamedicaCollection;</span>
+<span class="fc" id="L122">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

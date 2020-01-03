@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Medicamentoreceta.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.modelo</a> &gt; <span class="el_source">Medicamentoreceta.java</span></div><h1>Medicamentoreceta.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.modelo;
+
+import java.io.Serializable;
+
+
+/**
+ *
+ * @author USER
+ */
+
+public class Medicamentoreceta implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    private Integer idMedRes;
+    private Medicamento idMedicamento;
+    private Receta idReceta;
+
+<span class="fc" id="L23">    public Medicamentoreceta() {</span>
+<span class="fc" id="L24">    }</span>
+
+<span class="nc" id="L26">    public Medicamentoreceta(Integer idMedRes) {</span>
+<span class="nc" id="L27">        this.idMedRes = idMedRes;</span>
+<span class="nc" id="L28">    }</span>
+
+    public Integer getIdMedRes() {
+<span class="fc" id="L31">        return idMedRes;</span>
+    }
+
+    public void setIdMedRes(Integer idMedRes) {
+<span class="fc" id="L35">        this.idMedRes = idMedRes;</span>
+<span class="fc" id="L36">    }</span>
+
+    public Medicamento getIdMedicamento() {
+<span class="fc" id="L39">        return idMedicamento;</span>
+    }
+
+    public void setIdMedicamento(Medicamento idMedicamento) {
+<span class="fc" id="L43">        this.idMedicamento = idMedicamento;</span>
+<span class="fc" id="L44">    }</span>
+
+    public Receta getIdReceta() {
+<span class="fc" id="L47">        return idReceta;</span>
+    }
+
+    public void setIdReceta(Receta idReceta) {
+<span class="fc" id="L51">        this.idReceta = idReceta;</span>
+<span class="fc" id="L52">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L56">        int hash = 0;</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        hash += (idMedRes != null ? idMedRes.hashCode() : 0);</span>
+<span class="fc" id="L58">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (!(object instanceof Medicamentoreceta)) {</span>
+<span class="fc" id="L65">            return false;</span>
+        }
+<span class="nc" id="L67">        Medicamentoreceta other = (Medicamentoreceta) object;</span>
+<span class="nc bnc" id="L68" title="All 8 branches missed.">        if ((this.idMedRes == null &amp;&amp; other.idMedRes != null) || (this.idMedRes != null &amp;&amp; !this.idMedRes.equals(other.idMedRes))) {</span>
+<span class="nc" id="L69">            return false;</span>
+        }
+<span class="nc" id="L71">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L76">        return &quot;modelo.Medicamentoreceta[ idMedRes=&quot; + idMedRes + &quot; ]&quot;;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

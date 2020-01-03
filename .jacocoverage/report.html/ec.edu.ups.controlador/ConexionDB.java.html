@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ConexionDB.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.controlador</a> &gt; <span class="el_source">ConexionDB.java</span></div><h1>ConexionDB.java</h1><pre class="source lang-java linenums">package ec.edu.ups.controlador;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import ec.edu.ups.modelo.Usuario;
+
+/**
+ *
+ * @author jessica
+ * 
+ * 
+ */
+
+<span class="nc" id="L17">public class ConexionDB {</span>
+    
+    private static Usuario usuarioSesion;
+     // Librería de MySQL
+  
+<span class="fc" id="L22">     private static Connection conexion = null;</span>
+ 
+    private static void conectar() {
+    
+        
+<span class="fc" id="L27">         conexion = null;</span>
+  
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">      if (conexion == null) {</span>
+         try {
+<span class="fc" id="L31">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="fc" id="L32">           conexion = DriverManager.getConnection(&quot;jdbc:mysql://localhost/consultorio&quot;, &quot;root&quot;, &quot;&quot;);</span>
+<span class="fc" id="L33">          System.out.println(&quot;conectado &quot;);</span>
+<span class="nc" id="L34">         } catch (SQLException ex) {</span>
+<span class="nc" id="L35">          System.out.println(&quot;Error de conexion : &quot; + ex.getMessage());</span>
+<span class="nc" id="L36">         } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L37">            throw new ClassCastException(ex.getMessage());</span>
+<span class="pc" id="L38">         }</span>
+      
+
+   }
+   
+<span class="fc" id="L43">    }</span>
+    
+       private static void  desconectar() {
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (conexion != null) {</span>
+            try {
+<span class="fc" id="L48">                conexion.close();</span>
+<span class="nc" id="L49">            } catch (SQLException ex) {</span>
+<span class="nc" id="L50">                System.out.println(&quot;Erro al desconctar &quot; + ex.getMessage());</span>
+<span class="fc" id="L51">            }</span>
+        }
+<span class="fc" id="L53">    }</span>
+    
+    public static boolean ejecutarSentencia(String sql) {
+     
+         try {
+<span class="fc" id="L58">            conectar();</span>
+<span class="fc" id="L59">            Statement sta =conexion.createStatement();</span>
+<span class="fc" id="L60">            sta.executeUpdate(sql);</span>
+<span class="fc" id="L61">           desconectar();</span>
+<span class="nc" id="L62">        } catch (SQLException ex) {</span>
+<span class="nc" id="L63">            System.out.println(&quot;Error de sql ejecutarSentencia : &quot; + ex.getMessage());</span>
+<span class="fc" id="L64">        }</span>
+<span class="fc" id="L65">        return false;</span>
+    }
+    
+    public static ResultSet ejecutarConsulta(String sql) {
+<span class="fc" id="L69">        ResultSet resultado = null;</span>
+<span class="fc" id="L70">       conectar();</span>
+        try {
+<span class="fc" id="L72">            Statement sentencia = conexion.createStatement();</span>
+<span class="fc" id="L73">            resultado = sentencia.executeQuery(sql);</span>
+<span class="fc" id="L74">            resultado.setFetchDirection(ResultSet.FETCH_FORWARD);</span>
+            
+<span class="fc" id="L76">        } catch (SQLException e) {</span>
+<span class="fc" id="L77">            System.out.println(&quot;Error consulta: &quot; + e.getMessage());</span>
+<span class="fc" id="L78">        }</span>
+<span class="fc" id="L79">        return resultado;</span>
+    }
+
+    public static Usuario getUsuarioSesion() {
+<span class="nc" id="L83">        return usuarioSesion;</span>
+    }
+
+    public static void setUsuarioSesion(Usuario usuarioSesion) {
+<span class="nc" id="L87">        ConexionDB.usuarioSesion = usuarioSesion;</span>
+<span class="nc" id="L88">    }</span>
+    
+    public static int generarID(String sql) {
+<span class="fc" id="L91">        int id = 0;</span>
+        try {
+          
+<span class="fc" id="L94">            ResultSet resultado = ConexionDB.ejecutarConsulta(sql);</span>
+          
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">            if (resultado.next()) {</span>
+          
+<span class="fc" id="L98">                id = resultado.getInt(1) + 1;</span>
+               
+            }
+<span class="nc" id="L101">        } catch (SQLException e) {</span>
+<span class="nc" id="L102">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="fc" id="L103">        }</span>
+<span class="fc" id="L104">         desconectar();</span>
+<span class="fc" id="L105">        return id;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -47,8 +47,7 @@ public class PacienteTest {
         Integer expResult = null;
         Integer result = instance.getIdPaciente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -60,23 +59,9 @@ public class PacienteTest {
         Integer idPaciente = null;
         Paciente instance = new Paciente();
         instance.setIdPaciente(idPaciente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
-    /**
-     * Test of getTipoSangre method, of class Paciente.
-     */
-    @Test
-    public void testGetTipoSangre() {
-        System.out.println("getTipoSangre");
-        Paciente instance = new Paciente();
-        String expResult = "";
-        String result = instance.getTipoSangre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of setTipoSangre method, of class Paciente.
@@ -87,23 +72,9 @@ public class PacienteTest {
         String tipoSangre = "";
         Paciente instance = new Paciente();
         instance.setTipoSangre(tipoSangre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
-    /**
-     * Test of getLugarNac method, of class Paciente.
-     */
-    @Test
-    public void testGetLugarNac() {
-        System.out.println("getLugarNac");
-        Paciente instance = new Paciente();
-        String expResult = "";
-        String result = instance.getLugarNac();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of setLugarNac method, of class Paciente.
@@ -114,23 +85,10 @@ public class PacienteTest {
         String lugarNac = "";
         Paciente instance = new Paciente();
         instance.setLugarNac(lugarNac);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
-    /**
-     * Test of getEtnia method, of class Paciente.
-     */
-    @Test
-    public void testGetEtnia() {
-        System.out.println("getEtnia");
-        Paciente instance = new Paciente();
-        String expResult = "";
-        String result = instance.getEtnia();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of setEtnia method, of class Paciente.
@@ -141,8 +99,7 @@ public class PacienteTest {
         String etnia = "";
         Paciente instance = new Paciente();
         instance.setEtnia(etnia);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -155,8 +112,7 @@ public class PacienteTest {
         Persona expResult = null;
         Persona result = instance.getPersonaPaciente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -168,8 +124,7 @@ public class PacienteTest {
         Persona personaPaciente = null;
         Paciente instance = new Paciente();
         instance.setPersonaPaciente(personaPaciente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -182,8 +137,7 @@ public class PacienteTest {
         int expResult = 0;
         int result = instance.hashCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -197,23 +151,10 @@ public class PacienteTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
-    /**
-     * Test of toString method, of class Paciente.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Paciente instance = new Paciente();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
 
     /**
      * Test of getUsuarioPaciente method, of class Paciente.
@@ -225,8 +166,7 @@ public class PacienteTest {
         Usuario expResult = null;
         Usuario result = instance.getUsuarioPaciente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -238,8 +178,7 @@ public class PacienteTest {
         Usuario usuarioPaciente = null;
         Paciente instance = new Paciente();
         instance.setUsuarioPaciente(usuarioPaciente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
     
 }

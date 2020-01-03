@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Medicamento.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ConsultorioMedico&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ec.edu.ups.modelo</a> &gt; <span class="el_source">Medicamento.java</span></div><h1>Medicamento.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.modelo;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+/**
+ *
+ * @author USER
+ */
+
+public class Medicamento implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Integer idMedicina;
+
+    private String nombreMedicina;
+
+    private String tipoMedicina;
+
+    private Date fechaCaducidad;
+
+    private double dosis;
+
+    
+<span class="fc" id="L35">    public Medicamento() {</span>
+<span class="fc" id="L36">    }</span>
+
+<span class="nc" id="L38">    public Medicamento(Integer idMedicina) {</span>
+<span class="nc" id="L39">        this.idMedicina = idMedicina;</span>
+<span class="nc" id="L40">    }</span>
+
+<span class="nc" id="L42">    public Medicamento(Integer idMedicina, String nombreMedicina, String tipoMedicina, Date fechaCaducidad, double dosis) {</span>
+<span class="nc" id="L43">        this.idMedicina = idMedicina;</span>
+<span class="nc" id="L44">        this.nombreMedicina = nombreMedicina;</span>
+<span class="nc" id="L45">        this.tipoMedicina = tipoMedicina;</span>
+<span class="nc" id="L46">        this.fechaCaducidad = fechaCaducidad;</span>
+<span class="nc" id="L47">        this.dosis = dosis;</span>
+<span class="nc" id="L48">    }</span>
+
+    public Integer getIdMedicina() {
+<span class="fc" id="L51">        return idMedicina;</span>
+    }
+
+    public void setIdMedicina(Integer idMedicina) {
+<span class="fc" id="L55">        this.idMedicina = idMedicina;</span>
+<span class="fc" id="L56">    }</span>
+
+    public String getNombreMedicina() {
+<span class="nc" id="L59">        return nombreMedicina;</span>
+    }
+
+    public void setNombreMedicina(String nombreMedicina) {
+<span class="fc" id="L63">        this.nombreMedicina = nombreMedicina;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getTipoMedicina() {
+<span class="nc" id="L67">        return tipoMedicina;</span>
+    }
+
+    public void setTipoMedicina(String tipoMedicina) {
+<span class="fc" id="L71">        this.tipoMedicina = tipoMedicina;</span>
+<span class="fc" id="L72">    }</span>
+
+    public Date getFechaCaducidad() {
+<span class="fc" id="L75">        return fechaCaducidad;</span>
+    }
+
+    public void setFechaCaducidad(Date fechaCaducidad) {
+<span class="fc" id="L79">        this.fechaCaducidad = fechaCaducidad;</span>
+<span class="fc" id="L80">    }</span>
+
+    public double getDosis() {
+<span class="fc" id="L83">        return dosis;</span>
+    }
+
+    public void setDosis(double dosis) {
+<span class="fc" id="L87">        this.dosis = dosis;</span>
+<span class="fc" id="L88">    }</span>
+
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L93">        int hash = 0;</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        hash += (idMedicina != null ? idMedicina.hashCode() : 0);</span>
+<span class="fc" id="L95">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (!(object instanceof Medicamento)) {</span>
+<span class="fc" id="L102">            return false;</span>
+        }
+<span class="nc" id="L104">        Medicamento other = (Medicamento) object;</span>
+<span class="nc bnc" id="L105" title="All 8 branches missed.">        if ((this.idMedicina == null &amp;&amp; other.idMedicina != null) || (this.idMedicina != null &amp;&amp; !this.idMedicina.equals(other.idMedicina))) {</span>
+<span class="nc" id="L106">            return false;</span>
+        }
+<span class="nc" id="L108">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L113">        return &quot;modelo.Medicamento[ idMedicina=&quot; + idMedicina + &quot; ]&quot;;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
