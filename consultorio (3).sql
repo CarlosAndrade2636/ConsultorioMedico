@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2019 a las 21:04:06
+-- Tiempo de generación: 13-01-2020 a las 22:32:22
 -- Versión del servidor: 10.4.8-MariaDB-log
 -- Versión de PHP: 7.1.33
 
@@ -37,6 +37,20 @@ CREATE TABLE `citamedica` (
   `paciente` int(11) NOT NULL,
   `estado` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `citamedica`
+--
+
+INSERT INTO `citamedica` (`idCita`, `fechaCita`, `horaCita`, `motivo`, `medico`, `paciente`, `estado`) VALUES
+(1, '2019-12-11', '15:10:00', 'dolor de estomago', 2, 2, 'espera'),
+(2, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(3, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(4, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(5, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(6, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(7, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera'),
+(8, '2019-12-11', '15:10:00', 'gripe', 2, 2, 'espera');
 
 -- --------------------------------------------------------
 
@@ -110,6 +124,13 @@ CREATE TABLE `medico` (
   `personaMedico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `medico`
+--
+
+INSERT INTO `medico` (`idMedico`, `correoMedico`, `especialidadMedico`, `usuarioMedico`, `personaMedico`) VALUES
+(2, 'pperez@gmail.com', 'general', 2, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +146,13 @@ CREATE TABLE `paciente` (
   `usuarioPaciente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `paciente`
+--
+
+INSERT INTO `paciente` (`idPaciente`, `tipoSangre`, `lugarNac`, `etnia`, `personaPaciente`, `usuarioPaciente`) VALUES
+(2, 'orh+', 'cuenc', 'Ecuatoriana', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -137,9 +165,29 @@ CREATE TABLE `persona` (
   `nombre` varchar(255) NOT NULL,
   `apellido` varchar(255) NOT NULL,
   `sexo` varchar(10) NOT NULL,
-  `fecha` varchar(255) NOT NULL,
+  `fecha` date NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `telefono` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`idPerosona`, `cedula`, `nombre`, `apellido`, `sexo`, `fecha`, `direccion`, `telefono`) VALUES
+(1, '032000', 'juab', 'lopez', 'mascu', '0000-00-00', 'toot', '2525'),
+(3, '0302405683', 'Pedro', 'Perez', 'M', '2018-12-20', 'totoracocha', '4173305');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `recepcionista`
+--
+
+CREATE TABLE `recepcionista` (
+  `idRecepcionista` int(11) NOT NULL,
+  `personaRecepcionista` int(11) NOT NULL,
+  `usuarioRecepcionista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -181,6 +229,16 @@ CREATE TABLE `usuario` (
   `passUsuario` varchar(255) NOT NULL,
   `rolUsuario` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `passUsuario`, `rolUsuario`) VALUES
+(1, 'juanlopez', '1234', 'paciente'),
+(2, 'pedroperez', '1234', 'medico'),
+(3, 'juan', '124523', 'medico'),
+(4, 'juan', '124523', 'medico');
 
 --
 -- Índices para tablas volcadas
@@ -247,6 +305,14 @@ ALTER TABLE `persona`
   ADD PRIMARY KEY (`idPerosona`);
 
 --
+-- Indices de la tabla `recepcionista`
+--
+ALTER TABLE `recepcionista`
+  ADD PRIMARY KEY (`idRecepcionista`),
+  ADD KEY `fk_recepcionistaPersona` (`personaRecepcionista`),
+  ADD KEY `fk_ResepcionistaUsuario` (`usuarioRecepcionista`);
+
+--
 -- Indices de la tabla `receta`
 --
 ALTER TABLE `receta`
@@ -273,7 +339,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `citamedica`
 --
 ALTER TABLE `citamedica`
-  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `consulrece`
@@ -303,19 +369,25 @@ ALTER TABLE `medicamentoreceta`
 -- AUTO_INCREMENT de la tabla `medico`
 --
 ALTER TABLE `medico`
-  MODIFY `idMedico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMedico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idPerosona` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPerosona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `recepcionista`
+--
+ALTER TABLE `recepcionista`
+  MODIFY `idRecepcionista` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `receta`
@@ -333,7 +405,7 @@ ALTER TABLE `turno`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -378,8 +450,14 @@ ALTER TABLE `medico`
 -- Filtros para la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  ADD CONSTRAINT `personaPaciente` FOREIGN KEY (`personaPaciente`) REFERENCES `persona` (`idPerosona`),
-  ADD CONSTRAINT `usaurioPaciente` FOREIGN KEY (`usuarioPaciente`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `personaPaciente` FOREIGN KEY (`personaPaciente`) REFERENCES `persona` (`idPerosona`);
+
+--
+-- Filtros para la tabla `recepcionista`
+--
+ALTER TABLE `recepcionista`
+  ADD CONSTRAINT `fk_ResepcionistaUsuario` FOREIGN KEY (`usuarioRecepcionista`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `fk_recepcionistaPersona` FOREIGN KEY (`personaRecepcionista`) REFERENCES `persona` (`idPerosona`);
 
 --
 -- Filtros para la tabla `turno`
