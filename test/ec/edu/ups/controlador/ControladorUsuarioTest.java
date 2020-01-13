@@ -7,6 +7,7 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Usuario;
 import java.util.List;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -57,7 +58,14 @@ public class ControladorUsuarioTest {
     @Test
     public void testAgregar() {
         System.out.println("agregar");
-        Usuario usuario = null;
+        
+        Usuario usuario = null ;
+       usuario.setIdUsuario(5);
+       usuario.setNombreUsuario("juan");
+       usuario.setPassUsuario("123");
+       usuario.setRolUsuario("medico");
+       
+        
         boolean expResult = false;
         boolean result = ControladorUsuario.agregar(usuario);
         assertEquals(expResult, result);

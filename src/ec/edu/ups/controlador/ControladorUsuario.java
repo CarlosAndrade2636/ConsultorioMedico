@@ -18,16 +18,19 @@ public class ControladorUsuario {
     }
 
     public static boolean agregar(Usuario usuario) {
-        if (buscar(usuario.getNombreUsuario()) == null) {
-            String sql = "insert into usuarios values("
+       
+            String sql = "insert into usuario values("
                     + usuario.getIdUsuario() + ", '"
                     + usuario.getNombreUsuario() + "', '"
                     + usuario.getPassUsuario() + "', '"
                     + usuario.getRolUsuario() + "')";
+            
             ConexionDB.ejecutarSentencia(sql);
+           
             return true;
-        }
-        return false;
+            
+        
+     
     }
 
     public static boolean modificar(String nombre, Usuario usuario) {
